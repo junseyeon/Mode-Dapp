@@ -7,14 +7,14 @@
     <title>Mode-app</title>
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" media="(min-width:0px) and (max-width:500dpx)" href="css/mobile.css">
-
+    <link rel="stylesheet" media="(min-width:0px) and (max-width:500px)" href="css/mobile.css">
+<!--ipad로 할때는 max-width:1025, html{font-size:의 크기만 키워주면 다 같이 사이즈 업}-->
 </head>
 <body>
     <header>
-        <h1><span class="hide"></span></h1>
-        <button class="btn_menu">메뉴</button>
-        <div>
+        <h1><span class="hide"></span></h1>   <!--logo-->
+        <button class="btn_menu active"></button>  <!--햄버거 메뉴-->
+        <div class="navigation active">  <!--btn_menu 눌렸을 때 2군데에 active들어가는 것으로 js에서 -->
             <div class="search">
                 <input type="search" placeholder="Search">
             </div>
@@ -26,7 +26,7 @@
                 </ul>
             </nav>
         </div>
-        <button class="btn_alram">알림</button>
+        <button class="btn_alram on"></button> <!--알람 메뉴, btn_alarm눌렀을 때 on추가하기(js)-->
     </header>
     
 </body>

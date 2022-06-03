@@ -21,7 +21,7 @@ header{
     left: 50%;
     top: 0;
     padding: 7.4rem 0 0;
-    width: 64.45rem;
+    width: 64.45rem;  /* 64.45rem만큼만 중간에 있어서 */
     transform : translateX(-50%);  /*left반대편(right)도 50% */
 }
 
