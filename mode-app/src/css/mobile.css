@@ -28,7 +28,16 @@ header .navigation{
     right: 0;
     background : #fff;
     text-align: center;
+    z-index: 999;
 }
+
+.visual{
+    /* position: absolute;
+    z-index: 0;
+    left: 50%;
+    transform : translateX(-50%);   */
+}
+
 header .search, 
 header .btn_alram, 
 header .btn_menu {
