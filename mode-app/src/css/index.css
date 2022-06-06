@@ -1,53 +1,63 @@
-html{
-    font-size: 20px;
-}
-body{
-    background-color: #4621AD;
-    font-size: 1rem;
-}
-h1{
-    position: absolute;
-    left: 50%;
-    top:0;
-    width: 12.35rem;
-    height: 5.2rem;
-    background-color: #fff;
-    transform: translateX(-50%); 
-    border-radius: 0 0 1.125rem 1.125rem;
-    background:url(../img/logo.png) no-repeat center / 4.75rem auto #fff ;
-}
-header{
-    position: absolute;
-    left: 50%;
-    top: 0;
-    padding: 7.4rem 0 0;
-    width: 64.45rem;  /* 64.45rem만큼만 중간에 있어서 */
-    transform : translateX(-50%);  /*left반대편(right)도 50% */
+video{
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;    /* 100vh 세로 fullscreen */
 }
 
-header nav ul { display: flex;}
-header nav ul li{ padding: 0 3rem 0 0;}   /*오른쪽으로 간격*/
-header nav ul a { position: relative; font-size: .75rem; line-height: 1rem; color: #C6C6DA; transition: all .3s;}
-header nav ul a:hover {color: #fff;}
-header nav ul a:after {         /*하단 밑줄 아래서 위로 올라오게*/
-    content: ""; 
-    position: absolute; 
-    left: 0; 
-    right: 0;
-    bottom: -0.125rem;  
-    height: .15rem; 
-    background: #fff;
-    transition: all .3s;             /*애니메이션*/
-    transform: translateY(.5rem);      /*y방향으로 위치*/
-    opacity: 0;
-}
-header nav ul a:hover:after{
-    transform: translateY(0rem);
-    opacity: 1;
+main{
+    top:13rem;
+    position: absolute;
+    left: 50%;
+    transform : translateX(-50%);  
 }
 
-header .search, header .btn_alram, header .btn_menu {
-    display: none;  /* 요소의 영역을 차지하지 않고 완전히 삭제된 것 처럼 보이게 */
+.visual{
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(89, 29, 255, 0.83);
+    width: 100%;
+    text-align: center;
+    color: #fff;        /* 폰트색 */
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 15px 0px;
+    border-radius: 8px;
 }
+
+.visual h2{
+    font-size: 2rem;
+}
+
+.visual p{
+    font-size: .7rem;   
+    line-height: .9rem;
+    padding: .5rem;
+}
+
+.visual ul{
+    display: flex;
+    padding: 4.65rem 0 0;
+}
+
+.visual li{
+    padding: 4.603rem 0 0 0;
+    flex: 1;        /* 가로 크기를 li가 n분의 1로 가짐 */
+    background: no-repeat center top / auto 3.6425rem;
+}
+
+.visual li:nth-child(1){ background-image: url(../img/ico-index1.png);}
+.visual li:nth-child(2){ background-image: url(../img/ico-index2.png);}
+.visual li:nth-child(3){ background-image: url(../img/ico-index3.png);}
+.visual li:nth-child(4){ background-image: url(../img/ico-index4.png);}
+
+
+.visual li strong{
+    font-size: .95rem;
+}
+
+.visual li p{
+    font-size: .9rem;
+}
+
 
 /* 한 줄 복사: shift+alt+다운 키 */
+

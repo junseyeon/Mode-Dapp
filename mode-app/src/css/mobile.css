@@ -18,7 +18,17 @@ h1{              /* index.css와 바뀐 부분만 다시 작성 */
     background:url(../img/onlyLogo.png) no-repeat center / 100% auto #fff ;
 }
 
-header .navigation{ display: none; padding: 2.35rem 0 0;}
+header .navigation{ 
+    display: none; padding: 2.35rem 0 0;
+    box-sizing: border-box;
+    height:14.3rem;
+    position: absolute;
+    left: 0;
+    top: 3.5rem;   /*header 높이가 3.5rem이라서 위에서부터 3.5 띄움 */
+    right: 0;
+    background : #fff;
+    text-align: center;
+}
 header .search, 
 header .btn_alram, 
 header .btn_menu {
@@ -56,16 +66,7 @@ header .btn_alram.on:after{  /* 동그라미 점 그리기 */
 header .btn_menu.active{
     background-image: url(../img/btn_menu_active.png);
 }
-header .navigation.active{
-    height:14.3rem;
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 3.5rem;   /*header 높이가 3.5rem이라서 위에서부터 3.5 띄움 */
-    right: 0;
-    background : #fff;
-    text-align: center;
-}
+
 header nav ul { display: block; padding: 2rem 0 0;}
 header nav ul li~li {padding: 1.6rem 0 0;}
 header nav ul li { padding: 0;}   /*index.css에 있는거 취소 */
@@ -80,6 +81,45 @@ header .navigation input{
      background: url(../img/mobile_menu_search.png) no-repeat 3.35rem / .919rem auto #F6F6F6;
      /* 3.35rem center ==> 왼쪽에서 3.35rem 만큼 떨어짐 */
 } /*border-radius 높이 만큼 하면 완전 둥그러짐 */
+
+header .navigation input.active{
+    background: none;
+}
 header .navigation input::placeholder{
     text-align: center;
+}
+
+/* index.css와 다른 부분만 작성하면 됨 */
+
+main{
+    top: 8.85rem;
+}
+
+.visual h2{
+    width: 7.4rem;
+    text-align: left;
+}
+.visual p{
+    padding: 3rem 0 0;
+    text-align: left;
+}
+
+.visual ul{
+    display: block;
+    padding: 4rem 0 0;    /* 위 옆 아래 */
+
+}
+
+.visual li{
+    padding: 4rem 0 1rem;
+    background: no-repeat center top / auto 3.6425rem;
+}
+
+.visual li strong{
+    font-size: .75rem;
+}
+
+.visual li p{
+    padding: .548rem 0 0;
+    font-size: .7rem;
 }
