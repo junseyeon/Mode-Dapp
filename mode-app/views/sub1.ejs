@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mode-app</title>
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/sub1.css">
+    <link rel="stylesheet" type="text/css"  media="(min-width:0px) and (max-width:500px)" href="css/mobile.css">
+<!--ipad로 할때는 max-width:1025, html{font-size:의 크기만 키워주면 다 같이 사이즈 업}-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
+    <script src="js/index.js" charset="utf-8"></script>
+
+</head>
+<body>
+    <header>
+        <h1><span class="hide"></span></h1>   <!--logo-->
+        <button class="btn_menu"></button>  <!--햄버거 메뉴-->
+        <div class="navigation">  <!--btn_menu 눌렸을 때 2군데에 active들어가는 것으로 js에서 -->
+            <div class="search">
+                <input type="search" placeholder="Search">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">ARTICLES</a></li>
+                    <li><a href="">AUDIO</a></li>
+                </ul>
+            </nav>
+        </div>
+        <button class="btn_alram on"></button> <!--알람 메뉴, btn_alarm눌렀을 때 on추가하기(js)-->
+    </header>
+</body>
+</html>
