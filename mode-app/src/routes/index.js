@@ -1,11 +1,13 @@
 "use strict"
-const express =require('express')
+const express =require('express');
 const router = express.Router();
 
 const ctrl = require('../controller/index.ctrl');
 
-router.get('/', ctrl.index);
-router.get('/sub1', ctrl.sub1);
+router.get('/', ctrl.output.index);
+router.get('/sub1', ctrl.output.sub1);
+router.get('/login', ctrl.output.login);
+router.post('/login', ctrl.process.login);
 
 module.exports = router;
 
