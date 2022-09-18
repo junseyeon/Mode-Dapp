@@ -15,7 +15,8 @@ main{
     padding: 2rem;
     justify-content: center;
     align-items: center;
-    background-color: rgba(89, 29, 255, 0.83);
+    /* background-color: rgba(89, 29, 255, 0.83); */
+    background-color : #243b55;
     text-align: center;
     color: #fff;        /* 폰트색 */
     box-shadow: rgb(0 0 0 / 10%) 0px 0px 15px 0px;

@@ -8,17 +8,35 @@ html {
     background: linear-gradient(#141e30, #243b55);
   }
   
-  .login-box {
+  .box{
     position: absolute;
     top: 50%;
     left: 50%;
     width: 400px;
-    padding: 40px;
     transform: translate(-50%, -50%);
+
+  }
+
+  .box .login-box {
+    padding: 40px;
     background: rgba(0,0,0,.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
+  }
+
+  .box .under-login-box{
+    padding-left: 40px;
+    padding-top: 10px;
+  }
+
+  .under-login-box h4{
+    color: #fff;
+  }
+
+  .under-login-box h4 a{
+    color:#03e9f4;
+    text-decoration: none;
   }
   
   .login-box h2 {
