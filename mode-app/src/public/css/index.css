@@ -1,3 +1,7 @@
+body{
+    background: #000;;
+}
+
 video{
     object-fit: cover;
     width: 100%;
@@ -9,6 +13,7 @@ main{
     position: absolute;
     left: 50%;
     transform : translateX(-50%);  
+    text-align: center;
 }
 
 .visual{
@@ -17,10 +22,10 @@ main{
     align-items: center;
     /* background-color: rgba(89, 29, 255, 0.83); */
     background-color : #243b55;
-    text-align: center;
     color: #fff;        /* 폰트색 */
     box-shadow: rgb(0 0 0 / 10%) 0px 0px 15px 0px;
     border-radius: 8px;
+    margin-bottom: 4rem;
 }
 
 .visual h2{
@@ -57,6 +62,29 @@ main{
 .visual li p{
     font-size: .9rem;
 }
+
+
+main button{
+    height: 2.174rem;
+    width : 12.6165rem;
+    border-radius: 2.174rem;
+    font-size: 1rem;
+    box-shadow: 0px 6px 12px #0000000D;
+    margin: 0 1.573rem;
+}
+
+div .register_btn{
+    border: 1px solid #fff;
+    background: none;
+    color: #fff;
+}
+
+div .login_btn { 
+    background-color: #fff;
+    border-color: #fff;
+    color : 243b55; 
+}
+
 
 
 /* 한 줄 복사: shift+alt+다운 키 */

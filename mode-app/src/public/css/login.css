@@ -185,6 +185,15 @@ html {
     }
   }
 
+  .user-box select{
+    background-color: transparent;
+    color: #fff;
+  }
+
+  .user-box select option{
+    background-color: #000;
+    color: #fff;
+  }
   
 /* Copyright (c) 2022 by Soufiane Khalfaoui HaSsani (https://codepen.io/soufiane-khalfaoui-hassani/pen/LYpPWda) */
   

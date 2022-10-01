@@ -18,9 +18,9 @@ loginBtn.addEventListener('click',function(){
     body: JSON.stringify(req),
    })
     .then((res) => res.json())
-    .then((res) => {
+    .then((res) => {    
         if(res.success){
-            location.href = "/";
+            location.href = "/market";
         }  else{
             alert(res.msg);
         }

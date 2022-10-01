@@ -4,6 +4,7 @@ const id = document.querySelector('#id');
 const Username = document.querySelector('#name');
 const pw = document.querySelector('#pw');
 const confirmPw = document.querySelector('#confirm-pw');
+const role = document.querySelector('#role');
 const registerBtn = document.querySelector('button');
 
 registerBtn.addEventListener('click', register);
@@ -11,12 +12,13 @@ registerBtn.addEventListener('click', register);
 function register(){
 
     if(!id.value) return alert('아이디를 입력해주세요');
-    if (pw !== confirmPw) return alert('비밀번호가 일치하지 않습니다.');
+    if (pw.value !== confirmPw.value) return alert('비밀번호가 일치하지 않습니다.');
     
    const req={
     id: id.value,
     pw: pw.value,
     name: Username.value,
+    role : role.value
    };
 
    fetch("/register",{              // post /login으로 넘어가고 값 받아옴 (컨트롤러 js)
@@ -29,7 +31,7 @@ function register(){
     .then((res) => res.json())
     .then((res) => {
         if(res.success){
-            cation.href = "/login"; 
+            location.href = "/login"; 
         }  else{
             alert(res.msg);
         }

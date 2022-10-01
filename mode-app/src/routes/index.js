@@ -5,7 +5,7 @@ const router = express.Router();
 const ctrl = require('../controller/index.ctrl');
 
 router.get('/', ctrl.output.index);
-router.get('/sub1', ctrl.output.sub1);
+router.get('/market', ctrl.output.market);
 router.get('/login', ctrl.output.login);
 router.get('/register', ctrl.output.register);
 

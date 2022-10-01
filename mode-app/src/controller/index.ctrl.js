@@ -7,8 +7,8 @@ const output = {
         res.render('index');    //views/index.ejs
     },
     
-    sub1: (req, res) => {
-        res.render('sub1');
+    market: (req, res) => {
+        res.render('market');
     },
     
     login: (req,res) => {
@@ -21,15 +21,15 @@ const output = {
 };
 
 const process = {
-    login: (req,res) => {
+    login: async(req,res) => {
         const user = new User(req.body);
-        const response = user.login();
-        return res.json(response);   // client 전달
+        const response = await user.login();
+        return res.json(response);              // client 전달
     },
 
-    register: (req, res) => {
+    register: async (req, res) => {
         const user = new User(req.body);
-        const response = user.register();
+        const response = await user.register();
         return res.json(response);
     },
 };

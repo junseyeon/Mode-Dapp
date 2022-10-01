@@ -133,3 +133,11 @@ main{
     padding: .548rem 0 0;
     font-size: .7rem;
 }
+
+.register_btn{
+    margin: 1.573rem 0;
+}
+
+.login_btn{
+    margin: 1.573rem 0;
+}
