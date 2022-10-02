@@ -1,6 +1,7 @@
 'use strict'
 
 const User = require("../model/User");
+const logger = require("../config/logger");
 
 const output = {
     index: (req, res)=>{
@@ -24,17 +25,31 @@ const process = {
     login: async(req,res) => {
         const user = new User(req.body);
         const response = await user.login();
+        if(response.err){
+            logger.error(`POST/ login 200 Response: "success: ${response.success}, Err: ${response.err}"`);
+        }
+        else{
+            logger.info(
+                `POST/ login 200 Response: "success: ${response.success}, msg: ${response.msg}"`
+            );
+        }
         return res.json(response);              // client 전달
     },
 
     register: async (req, res) => {
         const user = new User(req.body);
         const response = await user.register();
+        if(response.err){
+            logger.error(`POST/ login 200 Response: "success: ${response.success}, Err: ${response.err}"`);
+        }
+        else{
+            logger.info(
+                `POST/ register 200 Response: "success: ${response.success}, msg: ${response.msg}"`
+            );
+        }
         return res.json(response);
     },
 };
-
- 
 
 
 // module은 key:value 값으로 전달되는데 아래처럼 key만 적을경우 ex)index:index가 됨

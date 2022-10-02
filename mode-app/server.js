@@ -7,6 +7,7 @@ const app = express();
 const dotenv = require('dotenv');   // os 상관없이 환경변수 가져와서 사용가능한 dotenv
 dotenv.config();    //.env에 등록된 것 가져옴
 
+const logger = require('./src/config/logger');   //로거 사용 파일에 넣어두기
 
 const path = require('path');
 app.set('views', path.join(__dirname, 'src', 'views'));  // './views' 랑 동일
@@ -29,6 +30,10 @@ app.use('/', home);   // use: 미들웨어를 등록해주는 메소드
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
-    console.log('Example app listenin on port 3000');
+    logger.info(`Example app listenin on port ${PORT}`);
 });
 
+
+//------ mrogan logger 사용 
+//const morgan = require('morgan');
+//app.use(morgan('common'));

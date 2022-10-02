@@ -1,6 +1,7 @@
 'use strict'
 
 const UserStorage = require("./UserStorage");
+const logger = require("../config/logger");
 
 class User{
     constructor (body){
@@ -10,26 +11,29 @@ class User{
     async login(){        // function 안 붙임..
         const client = this.body;
         try{
-            const user = await UserStorage.getUserInfo(client.id);
-            if(user.id){
-                if(user.id===client.id && user.psword === client.pw){
+            const {id, psword} = await UserStorage.getUserInfo(client.id);
+            if(id){
+                if(id===client.id && psword === client.pw){
                     return {success:true};
                 }
                 return {success: false, msg: "비밀번호가 틀렸습니다"};
             }
             return {success: false, msg: "존재하지 않는 아이디입니다"};
         } catch(err){
-            return {success: false, msg: err};
+            return {success: false, err};    //key와 value가 같으면 key만 입력가능 
         }
        
     }
 
     async register(){
         const client = this.body;
-        console.log(this.body);
-        const result = UserStorage.save(client);
-        if(result) return {success : true};
-        else return {success: false, msg: "회원가입 실패입니다"};
+        try{
+            const result = await UserStorage.save(client);
+            if(result) return {success : true};
+            else return {success: false, msg: "회원가입 실패입니다"};
+        } catch(err){
+            return { success: false, err};
+        }
     }
 }
 

@@ -4,11 +4,16 @@ const id = document.querySelector('#id');
 const pw = document.querySelector('#pw');
 const loginBtn = document.querySelector('button');
 
-loginBtn.addEventListener('click',function(){
+loginBtn.addEventListener('click',login);
+
+function login(){
    const req={
     id: id.value,
     pw: pw.value
    };
+
+   if(!id.value) return alert("아이디를 입력해주세요");
+   if(!pw.value) return alert("비밀번호를 입력해주세요");
 
    fetch("/login",{              // post /login으로 넘어가고 값 받아옴 (컨트롤러 js)
     method : 'POST',
@@ -17,11 +22,15 @@ loginBtn.addEventListener('click',function(){
     },
     body: JSON.stringify(req),
    })
-    .then((res) => res.json())
-    .then((res) => {    
+    .then((res) => 
+        res.json()
+    )
+    .then((res) => { 
+        //alert(res.success);
         if(res.success){
             location.href = "/market";
         }  else{
+            if(res.err) return alert( res.err);
             alert(res.msg);
         }
     })
@@ -35,4 +44,4 @@ loginBtn.addEventListener('click',function(){
    // response는 데이터가 모두 받아진 상태가 아니다. josn으로 response스트림 가져와 완료 될 때까지 읽는다.
    // body 텍스트를 promise형태로 반환한다.
 
-});
+};
