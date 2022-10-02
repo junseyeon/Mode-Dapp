@@ -11,9 +11,9 @@ class User{
     async login(){        // function 안 붙임..
         const client = this.body;
         try{
-            const {id, psword} = await UserStorage.getUserInfo(client.id);
-            if(id){
-                if(id===client.id && psword === client.pw){
+            const user = await UserStorage.getUserInfo(client.id);
+            if(user){
+                if(user.id===client.id && user.psword === client.pw){
                     return {success:true};
                 }
                 return {success: false, msg: "비밀번호가 틀렸습니다"};
