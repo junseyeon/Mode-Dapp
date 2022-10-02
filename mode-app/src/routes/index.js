@@ -8,11 +8,13 @@ router.get('/', ctrl.output.index);
 router.get('/market', ctrl.output.market);
 router.get('/login', ctrl.output.login);
 router.get('/register', ctrl.output.register);
+router.get('/logout',ctrl.process.logout);
 
 router.post('/login', ctrl.process.login);
 router.post('/register', ctrl.process.register);
 
 module.exports = router;
+
 
 /**
     server.js에서 있었던 부분을 그대로 routes index.js로 가지고 옴

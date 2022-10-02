@@ -17,7 +17,7 @@ class UserStorage{
                     reject(`${err}`);
                 }
                 else {
-                    //if(data[0]===undefined) reject(`존재하지 않는 계정입니다.`);
+                    //if(data[0]!==undefined){ } 
                     resolve(data[0]);     //** reslove, reject가 같이쓰면 resolve가 반환 됨..
                 }
            });  

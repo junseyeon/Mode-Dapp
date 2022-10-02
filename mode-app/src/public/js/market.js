@@ -7,8 +7,8 @@ $(function () {
     // });
 
     var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 3,
-        slidesPerGroup: 3,
+        slidesPerView: 2,
+        slidesPerGroup: 2,
         spaceBetween: 10,
         loop: true,
         loopFillGroupWithBlank: true,

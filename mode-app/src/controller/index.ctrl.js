@@ -9,7 +9,7 @@ const output = {
     },
     
     market: (req, res) => {
-        res.render('market');
+        res.render('market');   //render할때 데이터도 넘길 수 있음
     },
     
     login: (req,res) => {
@@ -25,7 +25,13 @@ const process = {
     login: async(req,res) => {
         const user = new User(req.body);
         const response = await user.login();
-
+        
+        if(response.success){   //세션저장
+            req.session.num = 1;
+            req.session.uid = req.body.id;
+            req.session.isLogined= true;
+        }
+        
         const url = {
             method: 'POST',
             path: '/login',
@@ -47,6 +53,18 @@ const process = {
         log(response, url);
         return res.status(url.status).json(response);
     },
+
+    logout: (req, res) =>{
+        if(req.session.isLogined){
+            logger.info('로그아웃 합니다.');
+            req.session.destroy();
+            res.redirect('/');
+        }
+        else{
+            logger.info('로그인을 해주세요');
+            res.redirect('/login');
+        }
+    },
 };
 
 const log = (response, url) => {
@@ -67,4 +85,4 @@ module.exports={
     process,
 };
 
-// 상태코드 ; 올바른 상태코드를 서버에 전달해 주는게 중요함...
+// 상태코드 ; 올바른 상태코드를 서버에 전달해 주는게 중요
