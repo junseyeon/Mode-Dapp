@@ -26,7 +26,6 @@ function login(){
         res.json()
     )
     .then((res) => { 
-        //alert(res.success);
         if(res.success){
             location.href = "/market";
         }  else{

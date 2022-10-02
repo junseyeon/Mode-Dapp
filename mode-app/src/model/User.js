@@ -20,6 +20,7 @@ class User{
             }
             return {success: false, msg: "존재하지 않는 아이디입니다"};
         } catch(err){
+            logger.error(`:: user.js :: ${err} `);
             return {success: false, err};    //key와 value가 같으면 key만 입력가능 
         }
        
