@@ -9,7 +9,8 @@ html {
 
 body {
     margin: 0;
-    background: rgba(0,0,0,.99);
+    background: #000;
+
 }
 
 main {
@@ -37,7 +38,7 @@ main {
     /*display: block;*/
     margin: 1.5rem; 
     /* background: rgba(48, 49, 60, 0.5); */
-    background: linear-gradient(#0f1725, #2a2d30);
+    background:rgba(0,0,0,.5);
     box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
     border-radius: .7rem;
     width: 22.5rem;
@@ -56,6 +57,7 @@ main {
     height: 3rem;
     margin: 0.3rem 0.2rem 0.2rem 1.2rem;   /* */
     color: #fff;
+    font-size: 0.8rem;
 }
 
 .item .title {
@@ -66,6 +68,10 @@ main {
     font-size: 0.8rem;
 }
 
+.hidden-text{
+    display: none;
+}
+
 .last{
     opacity: 0.5;
 }
@@ -74,13 +80,13 @@ main {
     color: #fff;
 }
 
-.hide{
-    visibility: hidden;
+.swiper-button-prev{
+    display: none;
 }
 
 /* 왼쪽 sidebar */
 .left-side{
-    background: #191c1f;
+    background: rgba(0,0,0,.5);
     outline: none;
     line-height: 2rem;
     box-sizing: border-box;

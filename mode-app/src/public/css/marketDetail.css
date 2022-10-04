@@ -1,0 +1,102 @@
+html{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* background-color: #fff; */
+    line-height: 1;
+    font-family: Roboto, "Noto Sans KR", sans-serif;
+    color : rgb(34,34,34);
+}
+
+main{
+    position: absolute;
+    left: 50%;
+    transform : translateX(-50%);  
+    /* text-align: center; */
+    width: 80rem;
+}
+
+header{
+    font-size: 1rem;
+    padding-top: 1rem;
+    padding-left: 15%;
+}
+
+.main-image{
+    text-align: center;
+}
+
+.main-image img{
+    max-width: 1360px;  
+    max-height: 480px;  
+    padding: 5% 0%;          /* 세로 가로 */
+}
+
+.main-tag{
+    padding: 2rem 0rem;
+}
+
+.main-tag span{
+    padding-right: .3rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #c3c3c3;
+    background-clip: content-box;
+    border-radius: .1rem;
+    font-weight: 700;
+}
+
+.layout{
+    display: flex;
+}
+
+.content-left{
+    flex: 1;
+    --webkit-box-flex : 1;
+}
+
+.content-right{
+   width: 28.1rem;
+   border: 2px solid #eee;
+   margin-left: 4.5rem;
+}
+
+.content-left .title{
+    font-size: 2.35rem;
+    font-weight: 900;
+    padding-bottom: 3rem;
+}
+
+.content-left .registerInfo{
+    display: flex;
+    align-items: center;
+}
+
+.content-left .registerInfo > img{
+    width: 4rem;
+}
+
+.profile{
+    padding: 0rem 1.5rem;    /* 세로. 가로 */
+}
+
+.profile .usrid{
+    font-size: 1.2rem;
+}
+
+.profile .job{
+    font-size: 1rem;
+}
+
+.profile-register{
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+.introduce {
+    font-size: 1rem;
+    padding: 3rem 0rem;
+}

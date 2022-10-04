@@ -19,6 +19,10 @@ const output = {
     register: (req, res) => {
         res.render('register');
     },
+
+    marketDetail: (req, res) => {
+        res.render('marketDetail');
+    },
 };
 
 const process = {

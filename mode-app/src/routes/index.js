@@ -9,6 +9,7 @@ router.get('/market', ctrl.output.market);
 router.get('/login', ctrl.output.login);
 router.get('/register', ctrl.output.register);
 router.get('/logout',ctrl.process.logout);
+router.get('/marketDetail',ctrl.output.marketDetail); 
 
 router.post('/login', ctrl.process.login);
 router.post('/register', ctrl.process.register);
