@@ -8,7 +8,9 @@ body{
     /* background-color: #fff; */
     line-height: 1;
     font-family: Roboto, "Noto Sans KR", sans-serif;
+    font-size: 1rem;
     color : rgb(34,34,34);
+    position: relative;
 }
 
 main{
@@ -17,6 +19,10 @@ main{
     transform : translateX(-50%);  
     /* text-align: center; */
     width: 80rem;
+}
+
+bottom{
+
 }
 
 header{
@@ -29,23 +35,24 @@ header{
     text-align: center;
 }
 
-.main-image img{
+.main-image img, .main-image video{
     max-width: 1360px;  
     max-height: 480px;  
     padding: 5% 0%;          /* 세로 가로 */
 }
 
+
 .main-tag{
     padding: 2rem 0rem;
 }
 
-.main-tag span{
+.main-tag button{
     padding-right: .3rem;
-    font-size: 1rem;
-    color: #fff;
+    font-size: .8rem;
+    color: #666;
     background-color: #c3c3c3;
-    background-clip: content-box;
-    border-radius: .1rem;
+    /* background-clip: content-box; */
+    border-radius: .5rem;
     font-weight: 700;
 }
 
@@ -59,8 +66,7 @@ header{
 }
 
 .content-right{
-   width: 28.1rem;
-   border: 2px solid #eee;
+   width: 33rem;
    margin-left: 4.5rem;
 }
 
@@ -84,19 +90,94 @@ header{
 }
 
 .profile .usrid{
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .profile .job{
-    font-size: 1rem;
+    font-size: .8rem;
 }
 
 .profile-register{
-    font-size: 1rem;
+    font-size: .8rem;
     padding-left: 1rem;
 }
 
 .introduce {
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 3rem 0rem;
+}
+
+
+/* contetn-right */
+
+.cardTimer{
+    padding: 2.4rem;
+    text-align: center;
+    border: 2px solid #eee;
+}
+
+.cardTimer .leftTime{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.day, .hour, .minutes, .seconds{
+    margin: 0rem .75rem;
+    font-size: .7rem;
+    background-color: #edeff4;
+    padding: .6rem 1.4rem;
+}
+
+.leftD, .leftH, .leftM, .leftS{
+    font-size: 2rem;
+    font-weight: 900;
+    padding-bottom: .5rem;
+}
+
+.cardTimer .duration{
+    font-weight: 700;
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+}
+
+.detail{
+    padding: 2.4rem;
+    border: 2px solid #eee;
+}
+
+.totalFund{
+    display: flex;
+    align-items: baseline;
+}
+
+.totalFund dd{
+    flex : 1;
+    text-align: right;
+}
+
+.type{
+    display: flex;
+    align-items: baseline;
+    margin-top: 1.8rem;
+}
+
+.type dd{
+    flex: 1;
+    text-align: right;
+}
+
+.detail .StyleBtn {
+    height: 3.3rem;
+    line-height: 3.3rem;
+    padding: 0rem 2.4rem;
+    margin-top: 3.6rem;
+    font-size: 1rem;
+    background-color: #222;
+    border-radius: 4px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
 }
