@@ -21,10 +21,6 @@ main{
     width: 80rem;
 }
 
-bottom{
-
-}
-
 header{
     font-size: 1rem;
     padding-top: 1rem;
@@ -42,18 +38,56 @@ header{
 }
 
 
-.main-tag{
+.detail-top{
     padding: 2rem 0rem;
+    display: flex;
 }
 
 .main-tag button{
     padding-right: .3rem;
     font-size: .8rem;
-    color: #666;
-    background-color: #c3c3c3;
+    color: #fff;
+    background-color: #222;
     /* background-clip: content-box; */
-    border-radius: .5rem;
-    font-weight: 700;
+    border-radius: .2rem;
+    font-weight: 500;
+    padding: .1rem .3rem;
+    align-items: left;
+    margin-right: .8rem;
+}
+
+
+.sub-tag button{
+    padding-right: .3rem;
+    font-size: .8rem;
+    color: #222;
+    background-color: #edeff4;
+    /* background-clip: content-box; */
+    border-radius: .2rem;
+    font-weight: 500;
+    padding: .1rem .3rem;
+    align-items: left;
+}
+
+.detail-icon{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+
+}
+.detail-icon > .top-like{
+   margin-right: 1.2rem;
+   padding-left: 1.5rem;
+   /* line-height: 1.3rem; */
+   /* background: url(../img/heart.png) no-repeat 0; */
+   /* width: 1.4rem;
+   height: 1.4rem; */
+}
+.detail-icon > .top-share{
+    /* background: url(../img/sharePink.png) no-repeat 0; */
+    /* width: 1.3rem;
+    height: 1.3rem; */
+
 }
 
 .layout{
@@ -107,6 +141,48 @@ header{
     padding: 3rem 0rem;
     line-height: 150%;
 }
+
+/* 거래 추이 chart */
+
+.chart{
+    margin-top: 4.5rem;
+}
+.chart-title{
+    display: flex;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+
+}
+.chart-title > a{
+    z-index: 140;
+    display: inline-block;
+    position: relative;
+    /* width: .9rem;
+    height: .9rem;
+    background: url(../img/TooltipQ.png) no-repeat 50%; */
+    text-align: left;
+    /* vertical-align: -4; */
+}
+
+.tooltip-content{
+    display: none;
+    position: absolute;
+    width: 15rem;
+    line-height: 1.2rem;
+    padding: .6rem;
+    background-color: #222;
+    border-radius: 4px;
+    font-size: .7rem;
+    font-weight: 400;
+    color: #fff;
+}
+
+.tooltip-content > ul{
+    list-style-type: disc;
+}
+
+
 
 
 /* contetn-right */
@@ -181,4 +257,19 @@ header{
     text-align: center;
     cursor: pointer;
     color: #fff;
+}
+
+/* bottom */
+
+.article-bottom{
+   margin-top: 4.5rem;
+   padding: 2.4rem 0rem;
+   border-top: 1px solid #ddd;
+   color: #666;
+   line-height: 150%;
+}
+
+/* footer */
+footer{
+    
 }

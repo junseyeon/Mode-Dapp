@@ -11,7 +11,12 @@
     <link rel="stylesheet" type="text/css" href="css/marketDetail.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto">
-    <title>마켓 상세페이지</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <!-- chart 사용 -->
+    <script src="https://www.chartjs.org/samples/2.9.4/utils.js"></script>
+    <script src="js/marketDetail.js"></script>
+    <title>마켓 세부페이지</title>
 </head>
 <body>
     <header>
@@ -28,16 +33,29 @@
                 <source src="https://nft-content.upbit.com/b7d43f37-2432-41b6-86a9-8857f555fe44" type="video/mp4">
             </video>
         </div>
-        <div class="main-tag">
-                <% for(var i=0; i<5; i++) { %>
-                    <button>
-                        #태그
-                    </button>
-                <% } %>
-        </div>
 
         <div class="layout">
-            <section class="content-left">
+            <article class="content-left">
+                <div class="detail-top">
+                    <div class="main-tag">
+                            <% for(var i=0; i<1; i++) { %>
+                                <button>
+                                    진행중
+                                </button>
+                            <% } %>
+                    </div>
+                    <div class="sub-tag">
+                        <% for(var i=0; i<1; i++) { %>
+                            <button>
+                                가장 HIT 상품
+                            </button>
+                        <% } %>
+                    </div>
+                    <div class="detail-icon">
+                        <a  href class="top-like"><img src="/img/heart.png"style="width: 1.4rem;"> 0</a>
+                        <a  href class="top-share"><img src="/img/share.png" style="width: 1.3rem;"></a>
+                    </div>
+                </div>
                 <div class="title">
                     판매게시글에 대한 이름
                 </div>
@@ -56,8 +74,26 @@
                 <div class="introduce">
                     토성을 가장 토성답게 만드는 트레이드마크는? '고리'다. 거대 가스형 행성은 모두 고리를 갖지만, 토성 고리의 품격과 존재감은 남다르다. 올리는 이런 토성의 고리 위를 거니는 상상을 하며 잠드는데… 꿈속에서 토성 고리를 산책하는 올리와 베리의 모습을 디지털 콜렉터블 작품으로 표현했다.
                 </div>
-            </section>
-            <section class="content-right">
+
+                <div class="chart">
+                    <div class="chart-title">거래 추이&nbsp;
+                        <a href class="Tooltip">
+                            <img src="/img/TooltipQ.png" style="width: 1rem;">
+                            <div class="tooltip-content">
+                                <ul>
+                                    <li>* 리스트: 해당 NFT 전체 에디션이 최근 3개월간 마켓플레이스 거래된 내역을 확인할 수 있습니다.</li>
+                                    <li>* 그래프: 해당 NFT 전체 에디션이 최근 3개월간 마켓플레이스에서 거래된 가격 분포 추이를 확인할 수 있습니다.</li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="chart-main">
+                        <canvas id="purchaseTrend"></canvas>
+                    </div>
+                </div>
+
+            </article>
+            <article class="content-right">
                 <div class="cardTimer">
                     <div class="leftTime">
                         <div class="day">
@@ -91,15 +127,24 @@
                     </dl>
                     <div class="StyleBtn">주문하기</div>
                 </div>
-            </section>
-            <br><br><br><br><br>
-            <hr>
+            </article>
         </div>
-
+        <article class="article-bottom">
+           <div style="font-size:1.1rem; font-weight: bolder; margin-bottom: 1rem; color: #222;"> 고정가 판매 유의사항 </div>
+            NFT는 특정 주체가 그 가치를 보장하지 않으며, 이에 따른 손실도 본인에게 귀속됩니다. <br>
+            한정된 수량이 판매 종료 시점까지 고정된 가격으로 제공됩니다. <br>
+            고객확인 완료한 업비트 계정으로 참여 가능합니다. <br>
+            구매가 완료되면 취소할 수 없으므로 신중하게 결정하여 진행해주세요. <br>
+            준비된 수량이 모두 소진되거나 판매 종료 시점이 도래한 경우 판매가 종료됩니다.<br>
+            NFT는 판매 종료 후 7일 내 일괄 정산되어 지급됩니다.<br>
+            구매한 금액은 NFT 지급 시점에 정산처리 되며 해당 시점까지는 거래 가능 금액에서 제외됩니다.(출금 및 거래 불가) <br>
+            디바이스 상태에 따라 드롭스 시작/종료까지 남은 시간이 상이할 수 있습니다.<br>
+            NFT 소유자는 NFT와 연계된 “디지털 저작물“을 비상업적인 용도로 사용(개인 SNS 내 업로드하는 행위 및 디지털 저작물 원본 그대로 개인적 용도로 사용하는 행위)할 수 있는 권리와 NFT 입출금, 거래 등이 지원되는 경우 지원되는 방식에 따라 NFT의 소유권을 타인에게 이전할 수 있는 권리를 갖습니다.<br>
+        </article>
     </main>
-    <bottom>
+    <footer>
         <!-- 한국공학대학교 졸업작품
         Team | 21.5 -->
-    </bottom>
+    </footer>
 </body>
 </html>
