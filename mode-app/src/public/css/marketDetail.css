@@ -7,7 +7,7 @@ html{
 body{
     /* background-color: #fff; */
     line-height: 1;
-    font-family: Roboto, "Noto Sans KR", sans-serif;
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
     font-size: 1rem;
     color : rgb(34,34,34);
     position: relative;
@@ -103,8 +103,9 @@ header{
 }
 
 .introduce {
-    font-size: 1.2rem;
+    font-size: .9rem;
     padding: 3rem 0rem;
+    line-height: 150%;
 }
 
 
