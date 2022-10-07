@@ -12,6 +12,8 @@ $(".Tooltip").hover(
 
 })
 
+const Utils = require('../js/utils');
+
 /* chart sample start */
 const pt = document.getElementById('purchaseTrend');
 
