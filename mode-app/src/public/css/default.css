@@ -54,3 +54,23 @@ textarea[disabled]{padding:11px; font-size:16px; color:#666; font-weight:normal;
 .clear {clear:both;}
 .clear:after { content:""; display:block; clear:both;}
 
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+

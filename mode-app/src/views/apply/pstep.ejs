@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/apply.css">
+    <script src="/js/apply.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <%-include('header.ejs')%>
+        <%-include('leftside.ejs')%>
+        <div class="row">
+            <div class="column middle">
+                가운데
+            </div>
+            <%-include('rightside.ejs')%>
+        </div>
+        <%-include('footer.ejs')%>
+    </div>
+</body>
+
+</html>

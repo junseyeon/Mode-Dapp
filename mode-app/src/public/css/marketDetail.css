@@ -22,9 +22,13 @@ main{
 }
 
 header{
+    width: 100%;
+    position: fixed;
     font-size: 1rem;
     padding-top: 1rem;
     padding-left: 15%;
+    z-index: 1000;
+    background: #fff;
 }
 
 .main-image{
@@ -176,6 +180,7 @@ header{
     font-size: .7rem;
     font-weight: 400;
     color: #fff;
+    
 }
 
 .tooltip-content > ul{
@@ -271,5 +276,7 @@ header{
 
 /* footer */
 footer{
-    
+    clear: both;
+    display: table;
+    bottom: 0;
 }

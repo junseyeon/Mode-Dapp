@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html body{
+    height: 100%;
+}
+
+.row{
+    height: 100%;
+    overflow-y: auto;
+}
+
+.header{
+    overflow: hidden;
+    z-index: 1000;
+    background: #fff;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+}
+.column{
+    float: left;
+}
+.column.left{
+    width: 15rem;
+    box-shadow:  0 0 0 rgb(0 0 0 / 6%);
+    height: 100%;
+    padding-bottom: 6rem;
+}
+.column.middle{
+    width: 60%;
+    box-sizing: border-box;
+    padding: 2rem;
+}
+.column.right{
+    margin: 6rem 4rem;
+}
+.row::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.footer{
+    text-align: center;
+}
+
+#root{
+    height: 100%;
+}
+
+/* header */
+.top-left{
+    flex: initial;
+    /* width: 10rem; */
+}
+.top-left > img{
+    height: 1.5rem
+}
+.top-middle{
+    flex: 1 1;
+    margin: 0 .5rem;
+    overflow: hidden;
+    text-align: center;
+    font-size: 1rem;
+}
+.top-middle > img{
+    width: 1.5rem;
+}
+.top-right{
+    line-height: 1.4rem;
+    font-size: .8rem;
+    font-weight: 400;
+    font-style: normal;
+}
+.top-out{
+    font-size: 1rem;
+    outline: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+/* left side bar */
+.nav-top{
+
+}
+#color{
+    padding: 1.4rem;
+    background: linear-gradient(#141e30, #243b55);
+}
+.nav-top span{
+    border : .1rem solid #fff;
+    border-radius: .4rem;
+    font-size: .7rem;
+    color: #fff;
+    padding: .1rem;
+}
+.nav-top .top-title{
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #fff;
+    margin: .8rem 0rem;
+}
+.nav-top .projectNum{
+    font-size: .95rem;
+    font-weight: 700;
+    color: #fff;
+}
+.top-name{
+    display: none;
+    font-weight: 800;
+    font-size: .8rem;
+    padding: 1rem 0;
+    margin-left: 1.2rem;
+}
+.top-name > img{
+    width: 1.4rem;
+}
+.nav-main{
+    border-right: .02rem solid rgba(186,189,192,.2);
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.list-title{
+    text-decoration: none;
+    font-size: .85rem;
+    font-weight: 900;
+    padding: .8rem .8rem;
+    margin-left: .6rem;
+    color: #243b55;
+}
+
+.list-sub{
+    display: none;
+    font-size: .9rem;
+    font-weight: 800;
+    padding: 1rem 0rem 1rem 3.5rem;
+    background-color: rgba(186,189,192,.1);
+}
+
+.list-udBtn{
+    float: right;
+    background: transparent url('/img/down-arrow16.png') no-repeat top;
+    cursor: pointer;
+    width: 3rem;
+    height: 1rem;
+}
+
+.list-sub li{
+    margin-bottom: 1rem;
+}
+
+/* right side */
+.helper{
+    position: relative;
+    cursor: pointer;
+    height: 7rem;
+    width: 19rem;
+    background: transparent url("https://static.wadiz.kr/studio/static/media/guide_img.9a5848fe.svg") no-repeat top;
+}
+
+.helper div{
+    position: absolute;
+    top: -10px;
+    left: 5%;
+    -webkit-animation-name: FundingLinkGuide_tada__22Jxw;
+    animation-name: FundingLinkGuide_tada__22Jxw;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-delay: .1s;
+    animation-delay: .1s;
+}
+
+
+
+/* 반응형 사이즈 조절 */
+@media (max-width: 600px) {
+    .row {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+}

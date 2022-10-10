@@ -1,0 +1,88 @@
+<div class="column left">
+    <!-- <div class="sidebar"> -->
+        <div class="nav-top">
+            <div id="color">
+                <br>
+                <span>펀딩</span>
+                <span>펀딩 준비 작성중</span>
+                <div class="top-title">
+                    전세연의 <br>
+                    멋진프로젝트
+                </div>
+                <div class="projectNum">
+                    프로젝트번호 111111
+                </div>
+            </div>
+        </div>
+        <div class="nav-main">
+            <div class="top-name">
+                <img src="/img/building.png">
+                전세연
+            </div>
+            <ul>
+                <li>
+                    <div class="list-title">
+                        펀딩 준비
+                        <button class="list-udBtn" type="button"></button>
+                    </div>
+                    <ul class="list-sub">
+                        <li> <a href=""> 기본 요건 </a></li>
+                        <li>기본 조건</li>
+                        <li>스토리 작성</li>
+                        <li>리워드 설계</li>
+                        <li>위험 요인 및 정책</li>
+                        <li>메이커 정보</li>
+                        <li>대표자 및 정산 정보</li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="list-title">
+                        펀딩 준비
+                        <button class="list-udBtn" type="button"></button>
+                    </div>
+                    <ul class="list-sub">
+                        <li> <a href=""> 기본 요건 </a></li>
+                        <li>기본 조건</li>
+                        <li>스토리 작성</li>
+                        <li>리워드 설계</li>
+                        <li>위험 요인 및 정책</li>
+                        <li>메이커 정보</li>
+                        <li>대표자 및 정산 정보</li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="list-title">
+                        펀딩 준비
+                        <button class="list-udBtn" type="button"></button>
+                    </div>
+                    <ul class="list-sub">
+                        <li> <a href=""> 기본 요건 </a></li>
+                        <li>기본 조건</li>
+                        <li>스토리 작성</li>
+                        <li>리워드 설계</li>
+                        <li>위험 요인 및 정책</li>
+                        <li>메이커 정보</li>
+                        <li>대표자 및 정산 정보</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    <!-- </div> -->
+</div>
+
+<script>
+    $(".list-udBtn").click(function(){
+        const listBtn=$(this).parent().parent().children('ul');
+        
+        if(listBtn.css('display')=='none'){
+            listBtn.css('backgroud',"transparent url('/img/up-arrow16.png') no-repeat top");
+            listBtn.css('display','block');
+        }
+        else{
+            listBtn.css('display','none');
+        }
+
+    });
+
+
+</script>

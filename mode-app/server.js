@@ -39,10 +39,12 @@ app.use(session({
 
 // 라우팅은 routes/index.js에
 const home  = require('./src/routes/index');
+const apply = require('./src/routes/apply');
 
 //앱세팅 
 app.use('/', home);   // use: 미들웨어를 등록해주는 메소드
 //app.use(express.static('../mode-contract/build/contracts'));
+app.use('/apply',apply);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
