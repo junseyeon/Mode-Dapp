@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
-    <script src="/js/apply.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/default.css">
-    <link rel="stylesheet" type="text/css" href="/css/apply.css">
+ 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto">
+    <script src="/js/apply/pstep2.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/apply.css">
 </head>
 
 <body>
@@ -21,7 +22,59 @@
         <%-include('leftside.ejs')%>
         <div class="row">
             <div class="column middle">
-                가운데
+                <div class="path">펀딩조건 > 기본정보 </div>
+                <div class="mainTitle">기본 정보</div>
+                <div class="desc">
+                <b> 프로젝트를 대표하는 중요한 정보들을 입력해 주세요. </b>
+                </div>  <br> <br>
+                <label for="" class="p2label">프로젝트 제목</label>
+                <input type="text" id="" name=""> <br><br><br><br>
+
+                <label for="repImg" class="p2label">대표 이미지*</label><br><br>
+                <div class="imgFile">
+                    <label for="repImg" class="fileBtn"><img src="/img/camera.png">&nbsp;등록하기</button>
+                    <input type="file" id="repImg" style="display: none;" name=""></input>
+                </div><br>
+                <p class="explain">
+                    3MB 이하의 JPG, JPEG, PNG 파일
+                    해상도 1200x675 픽셀 이상
+                    텍스트나 로고는 넣을 수 없어요.
+                </p>
+                <br> <br>
+                <label for="category" class="p2label">카테고리 *</label> <br>
+                <select id="category" class="custom-select">
+                    <option value="">패션 잡화</option>
+                    <option value="">테크 가전</option>
+                    <option value="">뷰티</option>
+                    <option value="">푸드</option>
+                    <option value="">홈 리빙</option>
+                    <option value="">여행 레저</option>
+                    <option value="">게임 취미</option>
+                    <option value="">컬쳐 아티스트</option>
+                    <option value="">출판</option>
+                    <option value="">기부 캠페인</option>
+                    <option value="">후원</option>
+                </select> 
+                <br><br><br><br>
+                <label for="amount" class="p2label">목표 금액 *</label>
+                <p class="explain">
+                    최소 50만 원 ~ 최대 1억 원 사이에서 설정해 주세요.
+                </p>
+                <input type="text" id="amount" name=""> 
+                <br><br><br><br>
+                <label for="endDate" class="p2label">프로젝트 종료일 *</label>
+                <p class="explain">프로젝트 심사부터 리워드 제작 기간 등 전체 일정을 고려해 설정해 주세요.</p>
+                <input type="date" id="endDate" name=""> 
+                <br><br><br><br>
+
+                <label for="searchTag" class="p2label">검색용 태그(#) *</label>
+                <p class="explain">
+                    엔터를 누르면 최대 10개까지 태그를 등록할 수 있어요.
+                </p>
+                <input type="text" id="searchTag" name="">
+                <br><br><br><br>
+
+                <button type="button" class="saveBtn"> 저장하기 </button>
             </div>
             <%-include('rightside.ejs')%>
         </div>

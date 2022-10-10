@@ -2,10 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 1rem;
 }
 
 html body{
     height: 100%;
+    color:  rgb(34,34,34);
+    overflow-y: hidden;
 }
 
 .row{
@@ -33,9 +36,9 @@ html body{
     padding-bottom: 6rem;
 }
 .column.middle{
-    width: 60%;
+    width: 55%;
     box-sizing: border-box;
-    padding: 2rem;
+    padding: 3rem;
 }
 .column.right{
     margin: 6rem 4rem;
@@ -90,7 +93,7 @@ html body{
 }
 #color{
     padding: 1.4rem;
-    background: linear-gradient(#141e30, #243b55);
+    background: linear-gradient(#1a263d, #243b55);
 }
 .nav-top span{
     border : .1rem solid #fff;
@@ -177,7 +180,13 @@ html body{
     animation-delay: .1s;
 }
 
-
+.p1hover2{
+    margin-top: 5rem;
+    font-size: .8rem; 
+    width:18rem;
+    padding: 1rem;
+    background-color: rgba(186,189,192,.1);
+}
 
 /* 반응형 사이즈 조절 */
 @media (max-width: 600px) {
@@ -185,4 +194,72 @@ html body{
       -webkit-flex-direction: column;
       flex-direction: column;
     }
+}
+
+/* middle 공통 css */
+.middle .path{
+    font-size: .8rem;
+}
+
+.middle .mainTitle{
+    font-size: 2.2rem;
+    font-weight: bolder;
+    padding: 2rem 0;
+}
+
+.question{
+    padding: 1.5rem 0;
+    font-weight: 600;
+}
+
+.title{
+    padding-bottom: 1rem;
+}
+
+.explain{
+    font-size: .9rem;
+    color: gray;
+    line-height: 130%;
+    margin-bottom: 1rem;
+}
+
+textarea{
+    width: 100%;
+    height: 5rem;
+}
+
+.middle .saveBtn{
+    width: 20rem;
+    height: 3rem;
+    background-color: #243b55;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: 5rem;
+}
+
+#category{
+    width: 100%;
+    height: 2.2rem;
+    font-size: 1rem;
+    margin-top: .5rem;
+}
+
+/* step2 page */
+.middle .fileBtn{
+    padding: 1rem;
+    border-radius: .3rem;
+    background-color: gray;
+    color: #fff;
+}
+
+.p2label{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+input[type=text]{
+    height: 2.2rem;
+    font-size: 1rem;
+    font-weight: 300;
 }
