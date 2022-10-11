@@ -1,6 +1,6 @@
 "use strict"
 
-const db = require('../config/db_config.js');
+const db = require('../config/db_config');
 const logger = require("../config/logger");
 
 class UserStorage{
@@ -11,7 +11,7 @@ class UserStorage{
         
     static getUserInfo(id){    // 입력한id index에 위치한 pw랑 같이 넘김 
         return new Promise((resolve, reject)=> {
-            const query = "SELECT id, psword FROM user WHERE id = ?;";
+            const query = "SELECT user_id, psword FROM user WHERE user_id = ?;";
             db.query(query,[id],(err,data) => {
                 if(err) {
                     reject(`${err}`);
@@ -26,7 +26,7 @@ class UserStorage{
 
     static save(userInfo){
         return new Promise((resolve, reject)=> {
-            const query = "insert into user(id,name, psword,role) values(?,?,?,?);";
+            const query = "insert into user(user_id,name, psword,role) values(?,?,?,?);";
             db.query(query,[userInfo.id,userInfo.name, userInfo.pw, userInfo.role],(err,data) => {
                 if(err) reject(`${err}`);
                 else resolve({success:true});

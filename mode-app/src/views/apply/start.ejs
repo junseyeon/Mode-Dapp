@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/apply.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <script src="/js/apply/start.js"></script>
+    
+</head>
+<style>
+    h2 {
+        font-size: 2.2rem;
+        font-weight: bolder;
+        margin-bottom: 2rem;
+    }
+
+    .middle button {
+        width: 20rem;
+        height: 3rem;
+        background-color: #243b55;
+        color: #fff;
+        font-weight: 500;
+        font-size: 1.1rem;
+        margin-bottom: 5rem;
+    }
+
+    .middle{
+        text-align: center;
+        width: 100%;
+        padding: 10rem;
+    }
+
+    .row{
+        vertical-align: middle;
+    }
+</style>
+
+<body>
+    <div id="root">
+        <%-include('header.ejs')%>
+        <div class="middle">
+            <div class="row">
+               
+                <h2>ID  <%= data.id %>님, 환영합니다! </h2>
+                <input type="hidden" value="<%= data.id %>">
+                <button id="startBtn"> 펀딩 시작하기 </button>
+            </div>
+        </div>
+    </div>
+    <%-include('footer.ejs')%>
+        </div>
+</body>
+
+</html>

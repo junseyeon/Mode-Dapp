@@ -1,3 +1,5 @@
+'use strict'
+
 $(function () {
 
     // $(".item").hover(function(){
@@ -54,7 +56,17 @@ $(function () {
     //     }
     // );
 
-
-
 });
 
+// 왼쪽 사이드바 버튼으로 url 이동... 
+// const applyBtn = document.querySelector('.applyBtn');
+// applyBtn.addEventListener('click',apply);
+
+// function apply(){
+//     // fetch("/apply/start",{
+//     //     method : "POST",
+//     //     headers : {
+//     //         "Content-Type" : "application/json",
+//     //     },
+//     // });
+// };
