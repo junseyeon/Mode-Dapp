@@ -6,11 +6,11 @@
                 <span>펀딩</span>
                 <span>펀딩 준비 작성중</span>
                 <div class="top-title">
-                    전세연의 <br>
+                    <%= data.name %> 님의 <br>
                     멋진프로젝트
                 </div>
                 <div class="projectNum">
-                    프로젝트번호 111111
+                    프로젝트번호 <%= data.regid %>
                 </div>
             </div>
         </div>
@@ -26,9 +26,15 @@
                         <button class="list-udBtn" type="button"></button>
                     </div>
                     <ul class="list-sub">
-                        <li> <a href="/apply/pstep1"> 기본 요건 </a></li>
-                        <li> <a href="/apply/pstep2"> 기본 조건 </a></li>
-                        <li> <a href="/apply/pstep3"> 스토리 작성 </a></li>
+                        <%
+                           const li1 = "/apply/pstep1?regid=" + data.regid;
+                           const li2 =  "/apply/pstep2?regid=" + data.regid;
+                           const li3 =  "/apply/pstep3?regid=" + data.regid;
+
+                        %>
+                        <li> <a href=<%= li1 %> > 기본 요건 </a></li>
+                        <li> <a href=<%= li2 %>> 기본 조건 </a></li>
+                        <li> <a href=<%= li3 %>> 스토리 작성 </a></li>
                         <li>리워드 설계</li>
                         <li>위험 요인 및 정책</li>
                         <li>메이커 정보</li>

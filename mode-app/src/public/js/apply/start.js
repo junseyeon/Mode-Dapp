@@ -6,13 +6,11 @@
                 url: '/apply/start',
                 async: true,
                 type: 'POST',
-                data: {
-                    id: $('input').val()
-                },
                 dataType: 'json',
                 success : function(data){
-                    alert('성공');
-                    location.href="/apply/pstep1";
+                    alert('프로젝트가 생성되었습니다.');
+                    // data.success , data.regid::프로젝트생성id 값 리턴 받음.
+                    location.href="/apply/pstep1?regid="+data.regid;
                 },
                 error: function(err){
                     alert(err);
