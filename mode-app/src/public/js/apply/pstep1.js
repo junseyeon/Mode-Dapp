@@ -20,6 +20,11 @@ function save(){
     });
 
     const reqArray = [q1,q12.value,q2.value, q3.value,q4.value];
+    console.log(reqArray);
+
+    reqArray.forEach((value)=>{
+        if(!value) return alert("모두 입력해주세요");
+    });
 
     const req={
         q1: q1,
@@ -30,11 +35,7 @@ function save(){
         regid: regid.value,
     };
 
-    console.log(req);
-
-    reqArray.forEach((value)=>{
-        if(!value) return alert("모두 입력해주세요");
-    });
+   
 
 
     // fetch("/apply/pstep1",{
@@ -57,7 +58,7 @@ function save(){
 
     $.ajax({
         url: '/apply/pstep1',
-        async: true,
+        async: false,
         type: 'POST',
         dataType: 'json',
         data : req,

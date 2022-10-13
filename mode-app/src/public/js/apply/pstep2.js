@@ -21,12 +21,12 @@
   const regImg = document.getElementById("regImg");
 
   function upImg(){
-    console.log(form);
     if(regImg.value != undefined){
         form.method="post";
         form.enctype="multipart/form-data";
         form.target="_self";
         form.action="/apply/upload";
+        form.submit();
     }
   }
 

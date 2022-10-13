@@ -4,7 +4,8 @@ const formidable = require('formidable');
 const Market = require("../model/Market");
 const logger = require("../config/logger");
 const fs  = require('fs');
-let name = null;
+var name = null;    //전역변수?
+var regid = null; 
 
 const output = {
     start: async(req,res)=>{
@@ -12,7 +13,7 @@ const output = {
         name = await start.getName(req.session.uid);
 
         const data = {
-            name : name,
+            name,
         }
         res.render('apply/start',{'data':data});
     },
@@ -20,11 +21,11 @@ const output = {
     greeting: async(req, res) => {
         //const greeting = new Market();
         // const name = await greeting.getName(req.session.uid);
-        const regid = req.query.regid;
+        regid = req.query.regid;
 
         const data = {
-            regid : regid, 
-            name : name,
+            regid, 
+            name,
         }
 
         res.render('apply/greeting',{'data':data});
@@ -32,17 +33,17 @@ const output = {
 
     pstep1: async(req,res)=>{
 
-        const regid = req.query.regid;
-        const step1 = new Market();
-        const name = await step1.getName(req.session.uid);
+        //const regid = req.query.regid;
+        //const step1 = new Market();
+        //const name = await step1.getName(req.session.uid);
 
         if(req.query.regid === undefined){
             //alert('잘못된 접근입니다');
             //process.exit(1);
         }
         const data = {
-            regid : regid,
-            name : name,
+            regid,
+            name,
         }
 
         // logger.info("regid: " + regid + " name: " + name);
@@ -50,29 +51,28 @@ const output = {
 
     },
     pstep2: async (req,res)=>{
-        const step2 = new Market();
-        const name = await step2.getName(req.session.uid);
+       // const step2 = new Market();
+       // name = await step2.getName(req.session.uid);
+       // regid = req.query.regid;
 
         if(req.query.regid === undefined){
             return;
         }
 
         const data = {
-            regid : req.query.regid, 
-            name : name,
+            regid, 
+            name,
         }
         res.render('apply/pstep2',{'data':data});    // 경로:: /apply/pstep1   
     },
     pstep3: async(req,res)=>{
-        // if(req.query.regid === undefined){
-        //     process.exit(1);
-        // }
-        const step3 = new Market();
-        const name = await step3.getName(req.session.uid);
+     
+       // const step3 = new Market();
+       // const name = await step3.getName(req.session.uid);
 
         const data = {
-            regid : req.query.regid, 
-            name : name,
+            regid ,
+            name,
         }
         res.render('apply/pstep3',{'data':data});    // 경로:: /apply/pstep1   
     },
@@ -104,17 +104,8 @@ const process = {
 
     },
     pstep2: (req,res) =>{
-        const form = new formidable.IncomingForm();
-        form.parse(req, (err, fields, files)=>{    //text data는 fields, file data는 files로 
-            var oldpath = files.repImg.path;
-            var newpath = './files/'+files.repImg.originalFilename;
-            fs.rename(oldpath,newpath,(err)=>{
-                if(err) throw err;
-                res.render('apply/pstep3');
-            });
-            res.json({fields,files});
-        });
-
+       
+       
 
     },
     pstep3: (req,res) =>{
@@ -122,7 +113,22 @@ const process = {
     },
 
     upload: (req,res)=>{
-
+        const form = new formidable.IncomingForm();
+        form.parse(req, (err, fields, files)=>{    //text data는 fields, file data는 files로 
+            var oldpath = files.regImg.filepath;
+            var newpath = './files/'+files.regImg.newFilename;
+            fs.rename(oldpath,newpath,function(err){
+                if(err) throw err;
+                else {
+                    const data = {
+                        regid, 
+                        name,
+                    }
+                    res.render('apply/pstep3',{'data': data});
+                    res.end();
+                }
+            });
+        });
     },
 }
 
