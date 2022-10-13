@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
+ 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" type="text/css" href="/css/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/apply.css">
+</head>
+
+<body>
+    <div id="root">
+        <%-include('header.ejs')%>
+        <%-include('leftside.ejs')%>
+        <div class="row">
+            <div class="column middle">
+               <h2><%= data.name %>, 반갑습니다!</h2>
+
+               <div class="comment">
+               프로젝트 개설을 축하드려요. <br>
+               서포터님들께 제품과 서비스를 드리며 잊지 못할 경험을 선물해 보세요. 메이커님이 펀딩에 성공할 수 있도록 <br>
+               와디즈가 함께할게요.
+                </div>
+                <br><br>
+                그럼 출발해 볼까요? <br><br><br>
+                <input type="hidden" id="regid" value="<%= data.regid %>">
+                <button>좋아요!</button>
+
+            </div>
+            <%-include('rightside.ejs')%>
+        </div>
+        <%-include('footer.ejs')%>
+    </div>
+</body>
+<script>
+
+$(document).ready(function() {    
+    
+ $("button").click(function() {
+    const regid = $('#regid').val();
+    location.href = "/apply/pstep1?regid=" + regid;
+ });
+
+});
+
+</script>
+</html>

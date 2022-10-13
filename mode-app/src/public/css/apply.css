@@ -247,7 +247,7 @@ textarea{
 
 /* step2 page */
 .middle .fileBtn{
-    padding: 1rem;
+    padding: 1rem 3rem;
     border-radius: .3rem;
     background-color: gray;
     color: #fff;

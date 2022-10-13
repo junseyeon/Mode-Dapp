@@ -10,7 +10,7 @@
                 success : function(data){
                     alert('프로젝트가 생성되었습니다.');
                     // data.success , data.regid::프로젝트생성id 값 리턴 받음.
-                    location.href="/apply/pstep1?regid="+data.regid;
+                    location.href="/apply/greeting?regid="+data.regid;
                 },
                 error: function(err){
                     alert(err);
