@@ -33,9 +33,9 @@ const output = {
 
     pstep1: async(req,res)=>{
 
-        //const regid = req.query.regid;
-        //const step1 = new Market();
-        //const name = await step1.getName(req.session.uid);
+        const regid = req.query.regid;
+        const step1 = new Market();
+        const name = await step1.getName(req.session.uid);
 
         if(req.query.regid === undefined){
             //alert('잘못된 접근입니다');
@@ -51,9 +51,9 @@ const output = {
 
     },
     pstep2: async (req,res)=>{
-       // const step2 = new Market();
-       // name = await step2.getName(req.session.uid);
-       // regid = req.query.regid;
+        const step2 = new Market();
+        name = await step2.getName(req.session.uid);
+        regid = req.query.regid;
 
         // if(req.query.regid === undefined){
         //     return;
@@ -64,7 +64,7 @@ const output = {
             name,
         }
 
-        logger.info("regid: " + regid + " name: " + name);
+        logger.info("output pstep2, regid: " + regid + " name: " + name);
         res.render('apply/pstep2',{'data':data});    // 경로:: /apply/pstep1   
     },
     pstep3: async(req,res)=>{
@@ -105,11 +105,23 @@ const process = {
        }
 
     },
-    pstep2: (req,res) =>{
+    pstep2: async (req,res) =>{
+        req.body.uid = req.session.uid;
+        req.body.regid = regid;
+        logger.info("pstep2 regid: " + regid);
+  
+        console.log("apply ctrl:" + JSON.stringify(req.body));
+        const postStep2 = new Market(req.body);
+        const response =  await postStep2.insertPage2();
        
-       
+        if(response.success){
+            res.json(response);
+       } else{
+            res.json({success:false});
+       }
 
     },
+
     pstep3: (req,res) =>{
 
     },
@@ -119,17 +131,18 @@ const process = {
         form.parse(req, (err, fields, files)=>{    //text data는 fields, file data는 files로 
             var oldpath = files.regImg.filepath;
             var newpath = './files/'+files.regImg.originalFilename;
+            logger.info(oldpath + " " + newpath);
             fs.rename(oldpath,newpath,function(err){
                 if(err) throw err;
                 else {
-                    logger.info("newpath: " + newpath);
                     const data = {
+                        success: true,
                         regid, 
                         name,
                         imgPath : '/files/'+files.regImg.originalFilename,
                     }
-                    console.log(data.imgPath);
-                    res.render('apply/pstep2',{'data': data});
+                  res.render('apply/pstep2',{'data': data});
+                  // res.json(data);  //-- ajax로 보낼 때
                 }
             });
         });

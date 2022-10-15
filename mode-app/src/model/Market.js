@@ -28,7 +28,7 @@ class Market{
         const result = await MarketStorage.register(id);
 
         try{
-            if(result) {
+            if(result.success) {
                 logger.info("result:" + result.success);  //객체 접근 2)result[success];
                 return result;
             } 
@@ -42,12 +42,12 @@ class Market{
     }
 
     async insertPage1(){
-
         const client = this.body;
         const result = await MarketStorage.step1(client);
+       // regid = result.regid;
 
         try{
-            if(result){
+            if(result.success){
                 return result;
             } else{
                 return { success: false, msg: "데이터 저장 실패"};
@@ -59,8 +59,20 @@ class Market{
 
     }
 
-    insertPage2(){
+    async insertPage2(){
+        const client = this.body;
+        const result = await MarketStorage.step2(client);
 
+        try{
+            if(result.success){
+                return result;
+            } else{
+                return { success: false, msg: "데이터 저장 실패"};
+            }
+
+        } catch(err){
+            return{success: false, err}; 
+        }
     }
 
     insertPage3(){
