@@ -14,7 +14,26 @@
     <link rel="stylesheet" type="text/css" href="/css/default.css">
     <link rel="stylesheet" type="text/css" href="/css/apply.css">
 </head>
-
+<style>
+     h2 {
+        font-size: 2.2rem;
+        font-weight: bolder;
+        margin-bottom: 2rem;
+    }
+    .middle button {
+        width: 20rem;
+        height: 3rem;
+        background-color: #243b55;
+        color: #fff;
+        font-weight: 500;
+        font-size: 1.1rem;
+        margin-bottom: 5rem;
+    }
+    .column.left{
+        opacity: 50%;
+        
+    }
+</style>
 <body>
     <div id="root">
         <%-include('header.ejs')%>
@@ -31,10 +50,11 @@
                 <br><br>
                 그럼 출발해 볼까요? <br><br><br>
                 <input type="hidden" id="regid" value="<%= data.regid %>">
+                
+                <br><br><br>
                 <button>좋아요!</button>
 
             </div>
-            <%-include('rightside.ejs')%>
         </div>
         <%-include('footer.ejs')%>
     </div>

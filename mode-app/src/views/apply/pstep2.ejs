@@ -41,9 +41,14 @@
 
                 <label for="regImg" class="p2label">대표 이미지*</label><br><br>
                 <div class="imgFile">
-                    <label for="regImg" class="fileBtn"><img src="/img/camera.png">&nbsp;등록하기</button>
-                    <input type="file" id="regImg" name="regImg" style="display: none;" onchange="upImg()"></input>
-                </div><br>
+                    <% if(data.imgPath == undefined) { %>
+                        <label for="regImg" class="fileBtn"><img src="/img/camera.png">&nbsp;등록하기</button>
+                        <input type="file" id="regImg" name="regImg" style="display: none;" onchange="upImg()"></input>
+                    <% } else { %>
+                        <img src='<%= data.imgPath %>' alt="대표 이미지" style="width: 20rem;">
+                    <% } %>
+                </div>
+                <br>
                 <p class="explain">
                     3MB 이하의 JPG, JPEG, PNG 파일
                     해상도 1200x675 픽셀 이상

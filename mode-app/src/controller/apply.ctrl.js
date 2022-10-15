@@ -15,7 +15,7 @@ const output = {
         const data = {
             name,
         }
-        res.render('apply/start',{'data':data});
+        res.render('apply/start',{'data': data});
     },
 
     greeting: async(req, res) => {
@@ -46,7 +46,7 @@ const output = {
             name,
         }
 
-        // logger.info("regid: " + regid + " name: " + name);
+        logger.info("regid: " + regid + " name: " + name);
         res.render('apply/pstep1',{'data':data});    // 경로:: /apply/pstep1   
 
     },
@@ -55,14 +55,16 @@ const output = {
        // name = await step2.getName(req.session.uid);
        // regid = req.query.regid;
 
-        if(req.query.regid === undefined){
-            return;
-        }
+        // if(req.query.regid === undefined){
+        //     return;
+        // }
 
         const data = {
             regid, 
             name,
         }
+
+        logger.info("regid: " + regid + " name: " + name);
         res.render('apply/pstep2',{'data':data});    // 경로:: /apply/pstep1   
     },
     pstep3: async(req,res)=>{
@@ -116,16 +118,18 @@ const process = {
         const form = new formidable.IncomingForm();
         form.parse(req, (err, fields, files)=>{    //text data는 fields, file data는 files로 
             var oldpath = files.regImg.filepath;
-            var newpath = './files/'+files.regImg.newFilename;
+            var newpath = './files/'+files.regImg.originalFilename;
             fs.rename(oldpath,newpath,function(err){
                 if(err) throw err;
                 else {
+                    logger.info("newpath: " + newpath);
                     const data = {
                         regid, 
                         name,
+                        imgPath : '/files/'+files.regImg.originalFilename,
                     }
-                    res.render('apply/pstep3',{'data': data});
-                    res.end();
+                    console.log(data.imgPath);
+                    res.render('apply/pstep2',{'data': data});
                 }
             });
         });

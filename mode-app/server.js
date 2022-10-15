@@ -7,7 +7,7 @@ const express = require('express');
 const bodyParaser = require('body-parser');
 const app = express();  
 
-const logger = require('./src/config/logger');   //로거 사용 파일에 넣어두기
+const logger = require('./src/config/logger');   //로거 설정 파일 require해줌 
 const path = require('path');
 app.set('views', path.join(__dirname, 'src', 'views'));  // './views' 랑 동일
 app.set('view engine', 'ejs');      //no default engine was specified and no extension was provided.
@@ -17,6 +17,8 @@ app.set('view engine', 'ejs');      //no default engine was specified and no ext
 app.use(express.static(path.join(__dirname, 'src','public'))); //퍼블릭 웹 아티팩트를 위한 베이스 디렉터리 (그냥 public이랑 같음)
 app.use(bodyParaser.json());
 app.use(bodyParaser.urlencoded({extended: true}));  //url을 통해 전달되는 데이터에 한글 공백 문자가 포함될 경우 제대로 인식되지 않는 문제해결
+app.use('/files', express.static('files'));
+
 
 //세션
 const session = require('express-session');
