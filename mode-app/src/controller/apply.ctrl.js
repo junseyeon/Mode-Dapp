@@ -10,12 +10,19 @@ var regid = null;
 const output = {
     start: async(req,res)=>{
         const start = new Market();
-        name = await start.getName(req.session.uid);
 
-        const data = {
-            name,
+        if(req.session.uid == undefined){
+            res.json("허용되지 않은 접근입니다. 로그인해주세요");
+            process.exit(1);
         }
-        res.render('apply/start',{'data': data});
+        else{
+            name = await start.getName(req.session.uid);
+            const data = {
+                name,
+            }
+            res.render('apply/start',{'data': data});
+        }
+        
     },
 
     greeting: async(req, res) => {
