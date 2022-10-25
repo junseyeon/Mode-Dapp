@@ -20,6 +20,14 @@
     <div id="root">
         <%-include('header.ejs')%>
         <%-include('leftside.ejs')%>
+        <%  
+            let radio1 = '';
+            let radio2 = '';
+            if(data.memory.s1_q1=='No')
+                radio1 = 'checked';
+            else
+                radio2 = 'checked';
+        %>
         <div class="row">
             <div class="column middle">
                 <div class="path">펀딩조건 > 기본요건 </div>
@@ -30,15 +38,15 @@
                 </div>  <br>
                 <div class="question">
                    <p class="title"> Q1. 펀딩을 통해 소개하시려는 제품이나 서비스가 국내/해외의 다른 크라우드펀딩 플랫폼이나 온라인 커머스, 자사몰이나 오프라인에서 유통된 적이 있거나, 현재 유통 중인가요?</p>
-                   <input type="radio" id="q11" name="1-1" value="No">
+                   <input type="radio" id="q11" name="1-1" value="No" checked="<%= radio1 %>">
                    <label for="q11">아니요. 국내와 해외에서 유통한 적이 없어요. 혹은 해외에서만 유통되었어요.</label>
                     <br>
-                   <input type="radio" id="q12" name="1-1" value="Yes">
+                   <input type="radio" id="q12" name="1-1" value="Yes" checked="<%= radio2 %>">
                    <label for="q12">네 국내에서 유통한 적이 있어요. 혹은 현재 국내에서 유통 중이에요.</label>
                    <br> <br>
                    <label for="q12text">국내에서 유통된 제품이나 서비스를 그대로 프로젝트로 소개할 수 없어요 <br> 
                     어떤 점이 개선되었는지 자세히 작성해 주세요.</label> <br><br>
-                   <textarea id="q12text" name="q12text" rows="10" cols="30" height="auto" placeholder="개선 보안된 세부 기능을 적어주세요."></textarea>
+                   <textarea id="q12text" name="q12text" rows="10" cols="30" height="auto" placeholder="개선 보안된 세부 기능을 적어주세요."><%= data.memory.s1_q12 %></textarea>
                 </div> 
                 <div class="question">
                     <p class="title">Q2. 준비하고 계신 리워드는 어떤 점이 특별한가요? 어떤 점을 기획/개발 또는 개선하여 제작한 리워드인가요?</p>
@@ -53,7 +61,7 @@
                     - 와디즈 서포터님들에게 해외 판매 제품을 소개하고 싶은 이유를 작성해 주세요.<br>
                     - 펀딩을 통해 기대할 수 있는 가치, 혜택 등을 알려 주세요<br>
                     </p>
-                    <textarea id="q2" name="q2" rows="4" cols="50" placeholder="내용을 입력해주세요."></textarea>
+                    <textarea id="q2" name="q2" rows="4" cols="50" placeholder="내용을 입력해주세요."><%= data.memory.s1_q2 %></textarea>
                  </div>
                  <div class="question">
                     <p class="title">Q3. 리워드가 어느 정도 준비되었나요? 앞으로의 계획도 구체적으로 설명해 주세요.</p>
@@ -66,7 +74,7 @@
                     - 앞으로 어떻게 준비할 예정인지 설명해 주세요.<br>
                     - 제공할 수 있는 좌석의 수, 하루 최대 예약 가능 수량, 서비스의 제공 방식(이메일, SMS 발송) 등 계획하고 있는 세부 내용을 알려 주세요.<br>
                     </p> 
-                    <textarea id="q3" name="q3" rows="4" cols="50" placeholder="내용을 입력해주세요."></textarea>
+                    <textarea id="q3" name="q3" rows="4" cols="50" placeholder="내용을 입력해주세요."><%= data.memory.s1_q3 %></textarea>
                  </div>
                  <div class="question">
                     <p class="title">Q4. 제품이나 서비스의 종류와 제작 형태를 알려 주세요.</p>
@@ -79,7 +87,7 @@
                     - 앞으로 어떻게 준비할 예정인지 설명해 주세요.<br>
                     - 제공할 수 있는 좌석의 수, 하루 최대 예약 가능 수량, 서비스의 제공 방식(이메일, SMS 발송) 등 계획하고 있는 세부 내용을 알려 주세요.<br>
                     </p>
-                    <textarea id="q4" name="q4" rows="4" cols="50" placeholder="내용을 입력해주세요."></textarea>
+                    <textarea id="q4" name="q4" rows="4" cols="50" placeholder="내용을 입력해주세요."><%= data.memory.s1_q4 %></textarea>
                  </div>
                  <input type="hidden" value="<%= data.regid %>" id="regid">
                  <button type="button" class="saveBtn"> 저장하기 </button>

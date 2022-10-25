@@ -43,35 +43,39 @@ const output = {
         const regid = req.query.regid;
         const step1 = new Market();
         const name = await step1.getName(req.session.uid);
+        let memory = await step1.getStep1(req.session.uid);
 
-        if(req.query.regid === undefined){
-            //alert('잘못된 접근입니다');
-            //process.exit(1);
+        if(memory.success == false){
+            memory = "";
         }
+
         const data = {
             regid,
             name,
+            memory,       //객체
         }
 
-        logger.info("regid: " + regid + " name: " + name);
+        logger.info("regid: " + regid + " name: " + name + " memory: " + JSON.stringify(memory) );
         res.render('apply/pstep1',{'data':data});    // 경로:: /apply/pstep1   
 
     },
     pstep2: async (req,res)=>{
+        regid = req.query.regid;
         const step2 = new Market();
         name = await step2.getName(req.session.uid);
-        regid = req.query.regid;
+        let memory = await step2.getStep2(req.session.uid);
 
-        // if(req.query.regid === undefined){
-        //     return;
-        // }
+        if(memory.success == false){
+            memory = "";
+        }
 
         const data = {
             regid, 
             name,
+            memory,
         }
 
-        logger.info("output pstep2, regid: " + regid + " name: " + name);
+        logger.info("output2 regid: " + regid + " name: " + name + " memory: " + JSON.stringify(memory) );
         res.render('apply/pstep2',{'data':data});    // 경로:: /apply/pstep1   
     },
     pstep3: async(req,res)=>{
@@ -138,18 +142,15 @@ const process = {
         form.parse(req, (err, fields, files)=>{    //text data는 fields, file data는 files로 
             var oldpath = files.regImg.filepath;
             var newpath = './files/'+files.regImg.originalFilename;
-            logger.info(oldpath + " " + newpath);
             fs.rename(oldpath,newpath,function(err){
                 if(err) throw err;
                 else {
-                    const data = {
-                        success: true,
-                        regid, 
-                        name,
-                        imgPath : '/files/'+files.regImg.originalFilename,
-                    }
-                  res.render('apply/pstep2',{'data': data});
-                  // res.json(data);  //-- ajax로 보낼 때
+                 var data = {
+                    success : true,
+                    src : '/files/'+files.regImg.originalFilename,
+                 }
+                 logger.info("upload ctrl: " + data.src);
+                 res.json(data);         //-- ajax로 보낼 때
                 }
             });
         });

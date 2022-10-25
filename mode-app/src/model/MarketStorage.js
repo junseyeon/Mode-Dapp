@@ -2,6 +2,7 @@
 
 const db = require('../config/db_config');
 const logger = require('../config/logger');
+const moment = require("moment");
 
 class MarketStorage{
 
@@ -34,6 +35,36 @@ class MarketStorage{
         })
     }
 
+    static getStep1(id){    // 나중에 프로젝트가 여러개면 프로젝트 아이디도 가져오기
+        return new Promise((resolve,reject)=>{
+            logger.info(id);
+            const query = "select s1_q1,s1_q12,s1_q2,s1_q3,s1_q4 from apply_main where user_id=?";
+            db.query(query,[id],(err,data)=>{
+                if(err){
+                    logger.err(`${err}`);
+                    reject(`${err}`);
+                } else{
+                    resolve(data[0]);
+                }
+            })
+        })
+    }
+
+    static getStep2(id){    // 나중에 프로젝트가 여러개면 프로젝트 아이디도 가져오기
+        return new Promise((resolve,reject)=>{
+            logger.info(id);
+            const query = "select pTitle, mainImgPath, category, amount, endDate, searchTag from apply_main where user_id=?";
+            db.query(query,[id],(err,data)=>{
+                if(err){
+                    logger.err(`${err}`);
+                    reject(`${err}`);
+                } else{
+                    resolve(data[0]);
+                }
+            })
+        })
+    }
+
     static step1(client){
        return new Promise((resolve, reject)=>{
             const query = "update apply_main set s1_q1=?, s1_q12=?, s1_q2=?, s1_q3=?, s1_q4=? where user_id=? and reg_id=?;";
@@ -51,8 +82,8 @@ class MarketStorage{
     static step2(client){
         console.log(client['0'] + ' ' +client['1'] + ' ' + client['2'] + ' ' + client['3'] );
         return new Promise((resolve, reject)=>{ 
-            const query="update apply_main set pTitle=?, mainImgPath=?, category=?, amount=?, endDate=?, searchTag=? where user_id=? and reg_id=?;;";
-            db.query(query, [client['0'], client['5'],client['1'],client['2'],client['3'],client['4'], client.uid, client.regid],(err,data)=>{
+            const query="update apply_main set pTitle=?, mainImgPath=?, category=?, amount=?, endDate=?, searchTag=concat_ws(',',searchTag,?) where user_id=? and reg_id=?;;";
+            db.query(query, [client['0'], client['5'],client['1'],client['2'],client['3'], client['4'], client.uid, client.regid],(err,data)=>{
                 if(err){
                     logger.error(`${err}`);
                     reject(`${err}`);

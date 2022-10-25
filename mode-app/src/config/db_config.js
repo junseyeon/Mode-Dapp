@@ -5,6 +5,7 @@ const db = mysql.createConnection({
     user: process.env.DB_USER,
     password: process.env.DB_PWD,
     database: process.env.DB_NAME,
+    dateStrings: "date",
 });
 
 // host: "mode.ccyybaccjurm.ap-northeast-2.rds.amazonaws.com",

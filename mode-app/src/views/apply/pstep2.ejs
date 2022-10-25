@@ -30,23 +30,25 @@
         <%-include('leftside.ejs')%>
         <div class="row">
             <div class="column middle">
-                <form name="imgUpload" id="imgUpload" action="/apply/pstpe2" method="post" enctype="multipart/form-data">
+                <form name="imgUpload" id="imgUpload" action="/apply/pstpe2" method="post">
                 <div class="path">펀딩조건 > 기본정보 </div>
                 <div class="mainTitle">기본 정보</div>
                 <div class="desc">
                 <b> 프로젝트를 대표하는 중요한 정보들을 입력해 주세요. </b>
                 </div>  <br> <br>
                 <label for="" class="p2label">프로젝트 제목</label> 
-                <input type="text" id="pTitle" name="pTitle"> <br><br><br><br>
+                <input type="text" id="pTitle" name="pTitle" value="<%= data.memory.pTitle %>"> <br><br><br><br>
 
                 <label for="regImg" class="p2label">대표 이미지*</label><br><br>
                 <div class="imgFile">
-                    <% if(data.imgPath == undefined) { %>
-                        <label for="regImg" class="fileBtn"><img src="/img/camera.png">&nbsp;등록하기</button>
+                        <%  let showimgCss="width: 20rem; display:none;";
+                            if(data.memory.mainImgPath == "" || data.memory.mainImgPath==undefined) { %>
+                        <label for="regImg" class="fileBtn"><img src="/img/camera.png">&nbsp;등록하기</button></label>
                         <input type="file" id="regImg" name="regImg" style="display: none;" onchange="upImg()"></input>
-                    <% } else { %>
-                        <img src='<%= data.imgPath %>' id="upImg" alt="대표 이미지" style="width: 20rem;">
-                    <% } %>
+                        <% }  showimgCss="width: 20rem; display:block"; %> 
+                      
+                        <img src="<%= data.memory.mainImgPath %>" id="loadImg" class="loadImg" alt="대표 이미지" style ="<%=showimgCss%>">
+
                 </div>
                 <br>
                 <p class="explain">
@@ -75,11 +77,11 @@
                 <p class="explain">
                     최소 50만 원 ~ 최대 1억 원 사이에서 설정해 주세요.
                 </p>
-                <input type="text" id="amount" name="amount" style="width: 95%;"> 원
+                <input type="text" id="amount" name="amount" style="width: 95%;" value="<%= data.memory.amount %>"> 원
                 <br><br><br><br>
                 <label for="endDate" class="p2label">프로젝트 종료일 *</label>
                 <p class="explain">프로젝트 심사부터 리워드 제작 기간 등 전체 일정을 고려해 설정해 주세요.</p>
-                <input type="date" id="endDate" name="endDate"> 
+                <input type="date" id="endDate" name="endDate" value="<%= data.memory.endDate.split(' ')[0] %>"> 
                 <br><br><br><br>
 
                 <label for="searchTag" class="p2label">검색용 태그(#) *</label>
@@ -89,11 +91,19 @@
                 <input type="text" id="searchTag" name="searchTag" onkeyup="enterkey()">
                 <br><br>
                 <div class="showTagArea">
-                <!-- <span id="tag"> </span> -->
+                    <%  let searchTagArray = [];
+                        if(data.memory.searchTag != '') { 
+                            searchTagArray=data.memory.searchTag.split(',');
+                            for( var i in searchTagArray ) {
+                    %>
+                    <span id="tag"> #<%= searchTagArray[i] %> </span>
+                    <% } 
+                    } %>
                 </div>
                 <br><br><br><br>
-
-                <button type="button" class="saveBtn" onClick="save();"> 저장하기 </button>
+                <input type="hidden" value="<%= searchTagArray %>" id="searchTagArray">
+                <input type="hidden" value="<%= data.regid %>" id="regid">
+                <button type="button" class="saveBtn" onClick="save()"> 저장하기 </button>
                 </form>
             </div>
             <%-include('rightside.ejs')%>
