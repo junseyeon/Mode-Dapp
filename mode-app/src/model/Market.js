@@ -67,6 +67,19 @@ class Market{
         }
     }
 
+    async getStep3(id){
+        const result = await MarketStorage.getStep3(id);
+        try{
+            if(result){
+                return result;
+            } else{
+                return {success: false, msg: "생성된 프로젝트가 없습니다."};
+            }
+        } catch(err){
+            return {success:false, err}
+        }
+    }
+
     async insertPage1(){
         const client = this.body;
         const result = await MarketStorage.step1(client);

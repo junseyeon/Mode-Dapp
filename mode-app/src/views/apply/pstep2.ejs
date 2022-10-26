@@ -41,13 +41,13 @@
 
                 <label for="regImg" class="p2label">대표 이미지*</label><br><br>
                 <div class="imgFile">
-                        <%  let showimgCss="width: 20rem; display:none;";
+                        <%  let showimg="width: 20rem; display:none;";
                             if(data.memory.mainImgPath == "" || data.memory.mainImgPath==undefined) { %>
                         <label for="regImg" class="fileBtn"><img src="/img/camera.png">&nbsp;등록하기</button></label>
                         <input type="file" id="regImg" name="regImg" style="display: none;" onchange="upImg()"></input>
-                        <% }  showimgCss="width: 20rem; display:block"; %> 
+                        <% }  showimg="width: 20rem; display:block"; %> 
                       
-                        <img src="<%= data.memory.mainImgPath %>" id="loadImg" class="loadImg" alt="대표 이미지" style ="<%=showimgCss%>">
+                        <img src="<%= data.memory.mainImgPath %>" id="loadImg" class="loadImg" alt="대표 이미지" style="<%=showimg%>">
 
                 </div>
                 <br>
@@ -59,6 +59,9 @@
 
                 <br> <br>
                 <label for="category" class="p2label">카테고리 *</label> <br>
+                <!-- 
+                    카테고리 데이터 받아오는 처리도 하기 
+                -->
                 <select id="category" class="custom-select">
                     <option value="category1">패션 잡화</option>
                     <option value="category2">테크 가전</option>

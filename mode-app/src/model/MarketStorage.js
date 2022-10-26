@@ -37,7 +37,6 @@ class MarketStorage{
 
     static getStep1(id){    // 나중에 프로젝트가 여러개면 프로젝트 아이디도 가져오기
         return new Promise((resolve,reject)=>{
-            logger.info(id);
             const query = "select s1_q1,s1_q12,s1_q2,s1_q3,s1_q4 from apply_main where user_id=?";
             db.query(query,[id],(err,data)=>{
                 if(err){
@@ -52,8 +51,36 @@ class MarketStorage{
 
     static getStep2(id){    // 나중에 프로젝트가 여러개면 프로젝트 아이디도 가져오기
         return new Promise((resolve,reject)=>{
-            logger.info(id);
             const query = "select pTitle, mainImgPath, category, amount, endDate, searchTag from apply_main where user_id=?";
+            db.query(query,[id],(err,data)=>{
+                if(err){
+                    logger.err(`${err}`);
+                    reject(`${err}`);
+                } else{
+                    resolve(data[0]);
+                }
+            })
+        })
+    }
+
+    static getPageInfo(uid, pageNum){         // 모든 page가 동일한 관계로 한 함수로 정리하기 [나중에]          
+        return new Promise((resolve,reject)=>{
+            const query = "select pTitle, mainImgPath, category, amount, endDate, searchTag from apply_main where user_id=?";
+            db.query(query,[uid],(err,data)=>{
+                if(err){
+                    logger.err(`${err}`);
+                    reject(`${err}`);
+                } else{
+                    resolve(data[0]);
+                }
+            })
+        })
+    }
+
+    static getStep3(id){    // 나중에 프로젝트가 여러개면 프로젝트 아이디도 가져오기
+        return new Promise((resolve,reject)=>{
+            logger.info(id);
+            const query = "select introImgPath, introVideoPath, introSummary from apply_main where user_id=?";
             db.query(query,[id],(err,data)=>{
                 if(err){
                     logger.err(`${err}`);

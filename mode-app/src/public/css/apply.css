@@ -247,7 +247,7 @@ textarea{
 
 /* step2 page */
 .middle .fileBtn{
-    padding: 1rem 3rem;
+    padding: .7rem 2.2rem;
     border-radius: .3rem;
     background-color: gray;
     color: #fff;
@@ -263,3 +263,67 @@ input[type=text]{
     font-size: 1rem;
     font-weight: 300;
 }
+
+/* step3 page */
+.file-upload{
+    margin-left: 1rem;
+}
+
+.imgFile, .videoFile{
+    margin-left: .6rem;
+}
+
+.p3label{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.imgFile-instruction{
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
+#introImgPath{
+    margin-bottom: 3rem;
+    vertical-align: baseline;
+}
+
+#summaryText{
+    margin-bottom: 3rem;
+}
+
+ /* 영상 url input css관련 */
+ .videoFile{
+    padding:1rem 0.5rem;
+ }
+ .inline{
+    width: 44%;
+    height: 3rem;
+    padding-bottom: .5rem;
+ }
+ input[type=text]{
+    width: 70%;
+    height: 100%;
+    border: 1px solid red;
+    font-size:1rem;
+    font-style: oblique;
+    display:inline;
+    outline:none;
+    box-sizing: border-box;
+    color:black;
+    border-radius: 0%;
+ }
+ input[type=text]::placeholder{font-size: 1rem;}
+ .showVideo{          /* input type button */
+    width: 30%;
+    height:100%;
+    border:none;
+    background-color: darkgray;
+    font-size:1rem;
+    color:#fff;
+    outline:none;
+    display:inline;
+    margin-left: -10px;
+    box-sizing: border-box;
+  }
+  input[type=button]:hover{
+    background-color: gray;
+  }

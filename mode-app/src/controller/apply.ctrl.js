@@ -4,6 +4,7 @@ const formidable = require('formidable');
 const Market = require("../model/Market");
 const logger = require("../config/logger");
 const fs  = require('fs');
+
 var name = null;    //전역변수?
 var regid = null; 
 
@@ -68,7 +69,6 @@ const output = {
         if(memory.success == false){
             memory = "";
         }
-
         const data = {
             regid, 
             name,
@@ -80,14 +80,22 @@ const output = {
     },
     pstep3: async(req,res)=>{
      
-       // const step3 = new Market();
-       // const name = await step3.getName(req.session.uid);
+        regid = req.query.regid;
+        const step3 = new Market();
+        name = await step3.getName(req.session.uid);
+        let memory = await step3.getStep3(req.session.uid);
+
+        if(memory.success == false){
+            memory = "";
+        }
 
         const data = {
             regid ,
             name,
+            memory,
         }
-        res.render('apply/pstep3',{'data':data});    // 경로:: /apply/pstep1   
+        logger.info("output3 regid: " + regid + " name: " + name + " memory: " + JSON.stringify(memory) );
+        res.render('apply/pstep3',{'data':data});     
     },
 }
 
