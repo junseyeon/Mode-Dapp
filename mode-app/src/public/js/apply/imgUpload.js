@@ -5,8 +5,9 @@ const loadImg = document.querySelector(".loadImg");
  function upImg(){
    const form = $('#imgUpload')[0];
    const formData = new FormData(form);
-   console.log(regImg.value);
    if(regImg.value != undefined){
+    console.log("::" + JSON.stringify(formData));
+
        $.ajax({
            url: '/apply/upload',
            enctype:'multipart/form-data',
@@ -30,12 +31,4 @@ const loadImg = document.querySelector(".loadImg");
            }
        });
    }
-
-   // if(regImg.value != undefined){
-   //     form.method="post";
-   //     form.enctype="multipart/form-data";
-   //     form.target="_self";
-   //     form.action="/apply/upload";
-   //     form.submit();
-   // }
  }

@@ -1,10 +1,4 @@
-'use strict'
 $(function(){
-
-    // document.getElementById("select").addEventListener('change',(event) =>{
-    //     console.log(event.target.value);
-    // });
-
 
     $("#introVideoPath").change(function(){
         $(".videoFile").css('display','block');
@@ -17,6 +11,10 @@ $(function(){
         $(".imgFile").css('font-weight','600');
         $(".videoFile").css('display','none');
     });
+        
+    const introImgPath  = document.querySelector('input[name=regImg]');
+    const introVideoPath  = document.querySelector('input[name=videoPath]');
+    const story = document.querySelector('input[name=story]');
     
     var quill = new Quill('#editor-container', {
         modules: {
@@ -30,6 +28,17 @@ $(function(){
         theme: 'snow'  // or 'bubble'
         });
 
+        $('.saveBtn').on('click', function(){
 
+            story.value = JSON.stringify(quill.getContents());
+            let reqArray = [introImgPath.value, introVideoPath.value, story.value] 
+            alert('저장합니다');
+
+            console.log({...reqArray});
+        //    console.log($(form).serializeArray());
+         })
+       
+     
 })
+
 

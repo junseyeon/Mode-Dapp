@@ -129,7 +129,7 @@ const process = {
         req.body.regid = regid;
         logger.info("pstep2 regid: " + regid);
   
-        console.log("apply ctrl:" + JSON.stringify(req.body));
+        console.log("apply2 ctrl:" + JSON.stringify(req.body));
         const postStep2 = new Market(req.body);
         const response =  await postStep2.insertPage2();
        
@@ -141,15 +141,31 @@ const process = {
 
     },
 
-    pstep3: (req,res) =>{
+    pstep3: async (req,res) =>{
+        req.body.uid = req.session.uid;
+        req.body.regid = regid;
+        logger.info("pstep3 regid: " + regid);
+  
+        console.log("apply3 ctrl:" + JSON.stringify(req.body));
+        const step3 = new Market(req.body);
+        const response =  await step3.insertPage3();
+       
+        if(response.success){
+            res.json(response);
+       } else{
+            res.json({success:false});
+       }
 
     },
 
     upload: (req,res)=>{
         const form = new formidable.IncomingForm();
+
         form.parse(req, (err, fields, files)=>{    //text data는 fields, file data는 files로 
+
             var oldpath = files.regImg.filepath;
             var newpath = './files/'+files.regImg.originalFilename;
+            logger.info(oldpath + " , " + newpath);
             fs.rename(oldpath,newpath,function(err){
                 if(err) throw err;
                 else {

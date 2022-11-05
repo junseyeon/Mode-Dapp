@@ -114,12 +114,27 @@ class Market{
         }
     }
 
-    insertPage3(){
-
+    async insertPage3(){
+        const client = this.body;
+        const result = await MarketStorage.step3(client);
+        this.tryCatch();
     }
 
     insertPage4(){
 
+    }
+
+    tryCatch(){
+        try{
+            if(result.success){
+                return result;
+            } else{
+                return { success: false, msg: "데이터 저장 실패"};
+            }
+
+        } catch(err){
+            return{success: false, err}; 
+        }
     }
 }
 

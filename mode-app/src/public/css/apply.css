@@ -295,11 +295,12 @@ input[type=text]{
     padding:1rem 0.5rem;
  }
  .inline{
-    width: 44%;
+    width: 65%;
     height: 3rem;
     padding-bottom: .5rem;
  }
- input[type=text]{
+
+ .inline #videoPath{
     width: 70%;
     height: 100%;
     border: 1px solid red;
@@ -313,7 +314,7 @@ input[type=text]{
  }
  input[type=text]::placeholder{font-size: 1rem;}
  .showVideo{          /* input type button */
-    width: 30%;
+    width: 20%;
     height:100%;
     border:none;
     background-color: darkgray;
