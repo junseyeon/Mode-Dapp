@@ -41,7 +41,7 @@ class Market{
 
     }
 
-    async getStep1(id){
+    async getStep1(id){       // uid에서 regid로 바꾸기.. 나중에1!!!
         const result = await MarketStorage.getStep1(id);
         try{
             if(result){
@@ -54,8 +54,8 @@ class Market{
         }
     }
 
-    async getStep2(id){
-        const result = await MarketStorage.getStep2(id);
+    async getStep2(regid){
+        const result = await MarketStorage.getStep2(regid);
         try{
             if(result){
                 return result;
@@ -67,8 +67,8 @@ class Market{
         }
     }
 
-    async getStep3(id){
-        const result = await MarketStorage.getStep3(id);
+    async getStep3(regid){
+        const result = await MarketStorage.getStep3(regid);
         try{
             if(result){
                 return result;
@@ -117,18 +117,18 @@ class Market{
     async insertPage3(){
         const client = this.body;
         const result = await MarketStorage.step3(client);
-        this.tryCatch();
+        return this.tryCatch(result);
     }
 
     insertPage4(){
 
     }
 
-    tryCatch(){
+    tryCatch(result){
         try{
             if(result.success){
                 return result;
-            } else{
+            } else{ 
                 return { success: false, msg: "데이터 저장 실패"};
             }
 

@@ -99,7 +99,7 @@ let tagArea = document.getElementsByClassName('showTagArea');
         success: function(data){
             if(data.success){
                 alert('기본 정보 저장 완료');
-                location.href='/apply/pstep3';
+                location.href='/apply/pstep3?regid='+data.regid;
             } else{
                 alert('기본 정보 저장 실패');
             }

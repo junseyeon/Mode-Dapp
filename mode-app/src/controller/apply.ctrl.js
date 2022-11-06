@@ -64,7 +64,7 @@ const output = {
         regid = req.query.regid;
         const step2 = new Market();
         name = await step2.getName(req.session.uid);
-        let memory = await step2.getStep2(req.session.uid);
+        let memory = await step2.getStep2(regid);
 
         if(memory.success == false){
             memory = "";
@@ -83,7 +83,7 @@ const output = {
         regid = req.query.regid;
         const step3 = new Market();
         name = await step3.getName(req.session.uid);
-        let memory = await step3.getStep3(req.session.uid);
+        let memory = await step3.getStep3(regid);
 
         if(memory.success == false){
             memory = "";
@@ -94,9 +94,20 @@ const output = {
             name,
             memory,
         }
-        logger.info("output3 regid: " + regid + " name: " + name + " memory: " + JSON.stringify(memory) );
+        logger.info("output3 regid:" + regid + " name: " + name + " memory: " + JSON.stringify(memory) );
         res.render('apply/pstep3',{'data':data});     
     },
+
+    pstep4: async (req,res)=>{
+        regid = req.query.regid;
+        const step4 = new Market();
+        name = await step4.getName(req.session.uid);
+        const data= {
+            regid,
+            name,
+        }
+        res.render('apply/pstep4',{'data':data});
+    }
 }
 
 const process = {
@@ -111,7 +122,6 @@ const process = {
        }
     },
     pstep1: async(req,res)=>{
-
         //userid값을 전달 받은 json값 추가하기 
         req.body.uid = req.session.uid;
         const step1 = new Market(req.body);
@@ -124,6 +134,7 @@ const process = {
        }
 
     },
+
     pstep2: async (req,res) =>{
         req.body.uid = req.session.uid;
         req.body.regid = regid;
@@ -143,13 +154,13 @@ const process = {
 
     pstep3: async (req,res) =>{
         req.body.uid = req.session.uid;
-        req.body.regid = regid;
-        logger.info("pstep3 regid: " + regid);
+      //  req.body.regid = regid;
+      //  logger.info("pstep3 regid: " + req.body.regid);
   
-        console.log("apply3 ctrl:" + JSON.stringify(req.body));
+        logger.info("process apply3:" + JSON.stringify(req.body));
         const step3 = new Market(req.body);
         const response =  await step3.insertPage3();
-       
+
         if(response.success){
             res.json(response);
        } else{

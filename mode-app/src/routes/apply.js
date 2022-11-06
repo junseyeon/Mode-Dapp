@@ -9,6 +9,7 @@ router.get('/greeting',ctrl.output.greeting);
 router.get('/pstep1',ctrl.output.pstep1);
 router.get('/pstep2',ctrl.output.pstep2);
 router.get('/pstep3',ctrl.output.pstep3);
+router.get('/pstep4',ctrl.output.pstep4);
 
 router.post('/start',ctrl.process.start);
 router.post('/pstep1',ctrl.process.pstep1);

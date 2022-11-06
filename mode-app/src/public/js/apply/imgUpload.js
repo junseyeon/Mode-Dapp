@@ -6,8 +6,6 @@ const loadImg = document.querySelector(".loadImg");
    const form = $('#imgUpload')[0];
    const formData = new FormData(form);
    if(regImg.value != undefined){
-    console.log("::" + JSON.stringify(formData));
-
        $.ajax({
            url: '/apply/upload',
            enctype:'multipart/form-data',
