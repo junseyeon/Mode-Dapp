@@ -2,17 +2,15 @@
 const express =require('express');
 const router = express.Router();
 
-const ctrl = require('../controller/index.ctrl');
+// var bodyParaser = require('body-parser');
+// var jsonParser = bodyParaser.json();
+// var urlencodedParser = bodyParaser.urlencoded({extended: false});
 
-router.get('/', ctrl.output.index);
-//router.get('/market', ctrl.output.market);
-router.get('/login', ctrl.output.login);
-router.get('/register', ctrl.output.register);
-router.get('/logout',ctrl.process.logout);
-//router.get('/marketDetail',ctrl.output.marketDetail); 
+const ctrl = require('../controller/market.ctrl');
 
-router.post('/login', ctrl.process.login);
-router.post('/register', ctrl.process.register);
+router.get('/market', ctrl.output.market);
+router.post('/marketDetail', ctrl.output.marketDetail); 
+router.get('/marketDetail', ctrl.output.marketDetail); 
 
 module.exports = router;
 

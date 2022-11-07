@@ -1,17 +1,30 @@
 $(function(){
 
-
-    $("#introVideoPath").change(function(){
+    function videoChecked(){
         $(".videoFile").css('display','block');
         $(".videoFile").css('font-weight','600');
         $(".imgFile").css('display','none');
-    });
+    }
 
-    $("#introImgPath").change(function(){
+    function imgChecked(){
         $(".imgFile").css('display','block');
         $(".imgFile").css('font-weight','600');
         $(".videoFile").css('display','none');
-    });
+    }
+
+    // 초기값 셋팅 
+    if($('#introVideoPath').is(':checked')){
+        console.log("videopath checked");
+        videoChecked();
+    } 
+    else if($('#introImgPath').is(':checked')){
+        console.log("imgpath checked");
+        imgChecked();
+    }
+
+    // 기본 토글 기능
+    $("#introVideoPath").change(videoChecked);
+    $("#introImgPath").change(imgChecked);
         
     const introImgPath  = document.querySelector('input[name=regImg]');
     const introVideoPath  = document.querySelector('input[name=videoPath]');
@@ -34,9 +47,9 @@ $(function(){
 
         
     if(story.value != ''){
-        console.log(story.value);
+       // console.log(story.value);
         const quilContent = JSON.parse(story.value);
-        console.log(quilContent.ops);
+        //console.log(quilContent.ops);
         quill.setContents(quilContent.ops);
     }
 

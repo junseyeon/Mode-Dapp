@@ -16,8 +16,8 @@ class MarketStorage{
                     // logger.info("marketStorage:: " + data[0].name + " " + typeof data[0].name);
                     resolve(data[0].name);
                 }
-            })
-        })
+            });
+        });
     }
 
     static register(id){
@@ -31,8 +31,8 @@ class MarketStorage{
                     logger.info("marketStorage, data.insertId: "+ data.insertId);
                     resolve({success:true, regid: data.insertId});
                 }
-            })
-        })
+            });
+        });
     }
 
     static getStep1(id){   
@@ -45,8 +45,8 @@ class MarketStorage{
                 } else{
                     resolve(data[0]);
                 }
-            })
-        })
+            });
+        });
     }
 
     static getStep2(regid){    
@@ -59,24 +59,11 @@ class MarketStorage{
                 } else{
                     resolve(data[0]);
                 }
-            })
-        })
+            });
+        });
     }
 
-    static getPageInfo(uid, pageNum){         // 모든 page가 동일한 관계로 한 함수로 정리하기 [나중에]          
-        return new Promise((resolve,reject)=>{
-            const query = "select pTitle, mainImgPath, category, amount, endDate, searchTag from apply_main where user_id=?";
-            db.query(query,[uid],(err,data)=>{
-                if(err){
-                    logger.err(`${err}`);
-                    reject(`${err}`);
-                } else{
-                    resolve(data[0]);
-                }
-            })
-        })
-    }
-
+   
     static getStep3(regid){    // 나중에 프로젝트가 여러개면 프로젝트 아이디도 가져오기
         return new Promise((resolve,reject)=>{
             logger.info("getStep3-marketStorage : " + regid);
@@ -88,8 +75,8 @@ class MarketStorage{
                 } else{
                     resolve(data[0]);
                 }
-            })
-        })
+            });
+        });
     }
 
 
@@ -104,7 +91,7 @@ class MarketStorage{
                     resolve({success:true, regid: client.regid});
                 }
             });
-       })
+       });
     }
 
     static step2(client){
@@ -135,7 +122,7 @@ class MarketStorage{
                         resolve({success:true, regid: client.regid});
                     }
                 });
-            })
+            });
     }
 
     static step4(client){
@@ -143,6 +130,22 @@ class MarketStorage{
     }
 
  
+    // marketDetail에 가져올 데이터
+    static getPageInfo(regid){        
+        return new Promise((resolve,reject)=>{
+            const query = "select * from apply_main where reg_id=?;";
+            db.query(query,[regid],(err,data)=>{
+                if(err){
+                    logger.err(`${err}`);
+                    reject(`${err}`);
+                } else{
+                  //  logger.info("query :: " + JSON.stringify(data[0]));
+                    resolve({success: true, data : data[0]});
+                }
+            });
+        });
+    }
+
 
 }
 

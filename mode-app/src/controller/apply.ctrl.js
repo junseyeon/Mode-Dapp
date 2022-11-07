@@ -9,6 +9,7 @@ var name = null;    //전역변수?
 var regid = null; 
 
 const output = {
+    
     start: async(req,res)=>{
         const start = new Market();
 

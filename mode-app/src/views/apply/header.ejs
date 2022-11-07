@@ -17,10 +17,16 @@
             <%= data.name %>
         </div>
         <div class="top-right">
-            <button type="button" class="top-out">
+            <button type="button" class="top-out" onclick="logout()">
                 나가기
             </button>
         </div>
     </div>
 </body>
+<script>
+    function logout(){
+        alert("로그아웃 합니다");
+        sessionStorage.clear();
+    }
+</script>
 </html>

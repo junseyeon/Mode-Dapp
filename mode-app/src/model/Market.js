@@ -124,6 +124,13 @@ class Market{
 
     }
 
+    async getMarket(){
+        const client = this.body;
+        const result = await MarketStorage.getPageInfo(client);
+        const result2 = this.tryCatch(result);
+        return result2.data;
+    }
+
     tryCatch(result){
         try{
             if(result.success){

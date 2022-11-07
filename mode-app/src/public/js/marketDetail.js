@@ -1,16 +1,14 @@
 'use strict'
 
 $(function(){
-$(".Tooltip").hover(
-    function(){
-        $(".tooltip-content").css('display','block');
-    },
-    function(){
-        $(".tooltip-content").css('display','none');
-    }
-);
-
-
+  $(".Tooltip").hover(
+      function(){
+          $(".tooltip-content").css('display','block');
+      },
+      function(){
+          $(".tooltip-content").css('display','none');
+      }
+  );
 });
 
 const pt = document.getElementById('purchaseTrend').getContext('2d');
@@ -49,6 +47,24 @@ const config = {
     }
   };
 
-
   const chart = new Chart(pt,config);
 /* cahrt sample end */
+
+
+
+
+/* quill editor */
+var quill = new Quill('#quill-container', {
+  scrollingContainer: '#scrolling-container', 
+  placeholder: 'Compose an epic...',
+  theme: 'bubble'
+});
+
+const stroy = document.querySelector("#setQuill");
+
+if(story.value != ''){
+   console.log(story.value);
+   const quilContent = JSON.parse(story.value);
+   console.log(quilContent.ops);
+   quill.setContents(quilContent.ops);
+}

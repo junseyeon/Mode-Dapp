@@ -8,9 +8,9 @@ const output = {
         res.render('index');    //views/index.ejs
     },
     
-    market: (req, res) => {
-        res.render('market');   //render할때 데이터도 넘길 수 있음
-    },
+    // market: (req, res) => {
+    //     res.render('market');   //render할때 데이터도 넘길 수 있음
+    // },
     
     login: (req,res) => {
         res.render('login');
@@ -20,9 +20,9 @@ const output = {
         res.render('register');
     },
 
-    marketDetail: (req, res) => {
-        res.render('marketDetail');
-    },
+    // marketDetail: (req, res) => {
+    //     res.render('marketDetail');
+    // },
 };
 
 const process = {
