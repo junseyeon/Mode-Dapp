@@ -22,7 +22,7 @@ header{
     position: absolute;
     left: 50%;
     top: 0;
-    padding: 7.4rem 0 0;
+    padding: 1rem 0 0;
     width: 64.45rem;  /* 64.45rem만큼만 중간에 있어서 */
     transform : translateX(-50%);  /*left반대편(right)도 50% */
 }
@@ -36,7 +36,7 @@ header nav ul a:after {         /*하단 밑줄 아래서 위로 올라오게*/
     position: absolute; 
     left: 0; 
     right: 0;
-    bottom: -0.125rem;  
+    /* bottom: -0.125rem;   */
     height: .15rem; 
     background: #fff;
     transition: all .3s;             /*애니메이션*/

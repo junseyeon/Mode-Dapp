@@ -16,7 +16,7 @@ body {
 main {
     width: 72rem;          
     margin: 0 auto;
-    padding: 9.4rem 0 0;   /* 상단 메뉴와의 간격 */ 
+    padding: 15rem 0 0;   /* 상단 메뉴와의 간격 */ 
     float: left; 
 }
 
@@ -120,4 +120,47 @@ main {
     width: 1.5rem;
     text-align: center;
     padding: 2rem 0rem;
+}
+
+/* 상단 검색 */
+#mainSearch{
+    width: 100%;
+    margin: 0;
+    padding: .4rem;
+    text-indent: 1rem;
+    border-radius: 4px;
+    font: inherit;
+    font-weight: 700;
+    background: rgba(37, 37, 37, 0.9);
+    color: #fff;
+    margin-bottom: 3rem;
+    font-size: .9rem;
+    height: 3rem;
+    outline: none;
+}
+
+input[search]::placeholder {
+    font-weight: bold;
+    opacity: .5;
+    font-size: 1rem;
+}
+
+/* instagram */
+.instagram{
+    display: flex;
+}
+.story{
+    height: 5rem;
+    width: 7rem;
+    /* display: inline-block ; */
+}
+.profile{
+    width: 4rem;
+    height: 4rem;
+    background: #bbb;
+    border-radius: 50%;
+}
+.name{
+    color: #fff;
+    padding: .5rem;
 }
