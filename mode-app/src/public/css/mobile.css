@@ -20,7 +20,8 @@ h1{              /* index.css와 바뀐 부분만 다시 작성 */
 }
 
 header .navigation{ 
-    display: none; padding: 2.35rem 0 0;
+    display: none; 
+    padding: 2.35rem 0 0;
     box-sizing: border-box;
     height:14.3rem;
     position: absolute;

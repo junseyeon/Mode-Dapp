@@ -27,11 +27,11 @@ header{
     transform : translateX(-50%);  /*left반대편(right)도 50% */
 }
 
-header nav ul { display: flex; }
-header nav ul li{ padding: 0 3rem 0 0;}   /*오른쪽으로 간격*/
-header nav ul a { position: relative; font-size: .75rem; line-height: 1rem; color: #C6C6DA; transition: all .3s;}
-header nav ul a:hover {color: #fff;}
-header nav ul a:after {         /*하단 밑줄 아래서 위로 올라오게*/
+
+nav ul li{ padding: 0 3rem 0 0;}   /*오른쪽으로 간격*/
+nav ul li a { position: relative; font-size: 1rem; line-height: 1rem; color: #C6C6DA; transition: all .3s;}
+nav ul li a:hover {color: #fff;}
+nav ul li a:after {         /*하단 밑줄 아래서 위로 올라오게*/
     content: ""; 
     position: absolute; 
     left: 0; 
@@ -51,7 +51,6 @@ header nav ul a:hover:after{
 header .search, header .btn_alram, header .btn_menu {
     display: none;  /* 요소의 영역을 차지하지 않고 완전히 삭제된 것 처럼 보이게 */
 }
-
 
 
 /* 한 줄 복사: shift+alt+다운 키 */
