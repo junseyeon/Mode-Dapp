@@ -30,38 +30,35 @@
             <a href="/logout"><img src="img/logout.png"></a>
         </div>
     </div>
+    <div id="modal" class="searchModal">
+        <div class="search-modal-content">
+            <div class="page-header">
+                <img src="/img/cross.png">
+            </div>
+            <div class="page-center">
+         
+            </div>
+            <hr>
+        </div>
+    </div>
     <header>
         <!-- <h1><span class="hide"></span></h1> -->
         <input type="search" autocomplete="off" name="mainSearch" id="mainSearch" placeholder="Search ...">
 
         <div class="instagram">
-            <div class="story">
-                <div class="profile"></div>
-                <div class="name">
-                    Sabrina
-                </div>
-            </div>
-            <div class="story">
+            <% for( var i=0; i<1; i++){  %> 
+            <div class="story" id="<%=i%>" >
                 <div class="profile">
+                    <img src="/img/cross.png">
                 </div>
                 <div class="name">
                     Sabrina
                 </div>
             </div>
-            <div class="story">
-                <div class="profile">
-                </div>
-                <div class="name">
-                    Sabrina
-                </div>
-            </div>
+            <% } %>
         </div>
-
         <!-- <button class="btn_menu"></button>   -->
         <div class="navigation">  <!--btn_menu 눌렸을 때 2군데에 active들어가는 것으로 js에서 -->
-            <!-- <div class="search">
-                <input type="search" placeholder="Search">
-            </div> -->
             <nav>
                 <ul>
                     <li id="home"><a href="">HOME</a></li>
@@ -72,7 +69,6 @@
         </div>
         <button class="btn_alram on"></button> <!--알람 메뉴, btn_alarm눌렀을 때 on추가하기(js)-->
     </header>
- 
     <main>
         <div class="swiper mySwiper">
             <div class="container swiper-wrapper">

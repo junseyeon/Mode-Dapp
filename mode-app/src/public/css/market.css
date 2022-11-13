@@ -14,18 +14,15 @@ body {
 }
 
 main {
-    position: absolute;
-    margin: 0 auto;
+    position: relative;
     padding: 18rem 0 0;   /* 상단 메뉴와의 간격 */
     transform : translateX(-50%);  /*left반대편(right)도 50% */ 
     left: 50%;
-    top: 0;
     width: 64.45rem;  /* 64.45rem만큼만 중간에 있어서 */
-
 }
 
 .swiper{
-    width: 48rem;          
+    width: 48rem;     
 }
 
 .container {
@@ -167,13 +164,20 @@ input[search]::placeholder {
 .profile{
     width: 4rem;
     height: 4rem;
-    background: #222;
+    background: #eee;
     border-radius: 50%;
     margin: 0 auto;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%)
+    transform: translate(-50%,-50%);
+}
+.profile img{
+    /* margin: .1rem; */
+    object-fit: scale-down;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
 }
 .name{
     text-align: center;
@@ -184,7 +188,31 @@ input[search]::placeholder {
     margin-top: 3.5rem;
 }
 
+/* The Modal (background) */
+.searchModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    z-index: 100;
+}
+
+/* Modal Content/Box */
+.search-modal-content {
+    background: rgb(99, 99, 99);
+    margin: 7% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 20rem; /* Could be more or less, depending on screen size */
+    height: 35rem;
+}
+.page-header{   
+    text-align: right;
+}
+.page-header img{ width: 2rem;}
+
 /* header */ 
 .navigation{text-align: center; padding-top: 2rem;}
 
 header nav ul { display: inline-flex; }
+
+

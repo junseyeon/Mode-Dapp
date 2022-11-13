@@ -1,4 +1,3 @@
-'use strict'
 
 $(function () {
 
@@ -50,11 +49,22 @@ $(function () {
         }
     );
 
-    // $('.item').mouseout(
-    //     function(){
-    //         $(this).find('.hidden-text').css('display','none');
-    //     }
-    // );
+    $("#modal").show();
+
+    $(document).on("click", ".story", function(){
+        console.log("click");
+        $(this).find("#modal").show();
+    });
+
+    $(".story").click(function(){
+        console.log("click");
+        $(this).find("#modal").show();
+    });
+
+    $(".page-header").click(function(){
+        $(this).find(".searchModal").hide();
+    });
+
 
 });
 
@@ -70,3 +80,4 @@ $(function () {
 //     //     },
 //     // });
 // };
+
