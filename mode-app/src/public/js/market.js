@@ -49,7 +49,7 @@ $(function () {
         }
     );
 
-    $("#modal").show();
+    // $("#modal").show();
 
     $(document).on("click", ".story", function(){
         console.log("click");
