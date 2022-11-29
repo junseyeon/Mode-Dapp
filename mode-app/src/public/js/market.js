@@ -52,18 +52,29 @@ $(function () {
     // $("#modal").show();
 
     $(document).on("click", ".story", function(){
-        console.log("click");
-        $(this).find("#modal").show();
+        $("#modal").show();
+        storyTimer();
     });
 
-    $(".story").click(function(){
-        console.log("click");
-        $(this).find("#modal").show();
-    });
+    function storyTimer(){
+        var elem = $("#timeBar");
+        var len = 0;
+        setInterval(function(){
+            if( len > 90){   //6초 후 닫힘
+                clearInterval();
+                modalHide();
+                len=0;
+            }
+            $("#timeBar").css("width", len+"%");
+            len += 1.5;
+        },100);
+    }
 
-    $(".page-header").click(function(){
-        $(this).find(".searchModal").hide();
-    });
+    $("#modal-close").click(modalHide);
+
+    function modalHide(){
+        $(".searchModal").hide();
+    }
 
 
 });

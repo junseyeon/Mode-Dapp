@@ -92,8 +92,6 @@ main {
     line-height: 2rem;
     box-sizing: border-box;
     width: 4.5rem;
-    height: 100%;
-    padding: 10% 0rem;
     position: fixed;
     margin: auto 0; 
     /* animation: left 1s var(--delay) both; */
@@ -154,7 +152,7 @@ input[search]::placeholder {
 .story{
     height: 4.5rem;
     width: 4.5rem;
-    background: linear-gradient(to right, orange, red);
+    background: linear-gradient(to right, rgb(255, 197, 91), rgb(233, 97, 97));
     border-radius: 50%;
     padding: .5rem;
     margin: 0 auto;
@@ -174,9 +172,9 @@ input[search]::placeholder {
 }
 .profile img{
     /* margin: .1rem; */
-    object-fit: scale-down;
-    width: 3.5rem;
-    height: 3.5rem;
+    object-fit: cover;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
 }
 .name{
@@ -197,16 +195,22 @@ input[search]::placeholder {
     z-index: 100;
 }
 
-/* Modal Content/Box */
+/* Modal Content Box */
 .search-modal-content {
-    background: rgb(99, 99, 99);
-    margin: -2% auto; /* 15% from the top and centered */
-    padding: 20px;
-    width: 22rem; /* Could be more or less, depending on screen size */
-    height: 38rem;
+    background: #ccc;
+    margin: -1% auto; /* 15% from the top and centered */
+    width: 18.3rem; /* Could be more or less, depending on screen size */
+    height: 33rem;
+    border-radius: .7rem;
+    position: relative;
 }
-.page-header{ text-align: right; }
-.page-header img{ width: 1.5rem;}
+/* 이미지 위에 올라가야 되는 것을 position absolute로 지정 */
+.search-modal-content #modal-close{  position: absolute; width: .7rem;  margin-left: 90%; margin-top: 2rem;}
+#modal-main img { border-radius:.7rem;  width: 18.5rem; height: 33rem;}
+#progressBar{ width: 90%; height: .15rem; background-color: #ccc; position:absolute; margin-top: .8rem; margin-left: 1rem;}
+#timeBar{ width: 10%; height: .15rem; background-color: #fff; }
+
+
 /* header */ 
 top{
     position: absolute;

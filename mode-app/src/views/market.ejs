@@ -27,18 +27,18 @@
             <img src="img/settings.png">
         </div>
         <div class="last_icon">
-            <a href="/logout"><img src="img/logout.png"></a>
+            <a href="/logout" onclick="alert('로그아웃 합니다.');"><img src="img/logout.png"></a>
         </div>
     </div>
     <div id="modal" class="searchModal">
         <div class="search-modal-content">
-            <div class="page-header">
-                <img src="/img/cross.png">
+            <div id="progressBar">
+                <div id="timeBar"></div>
             </div>
-            <div class="page-center">
-         
+            <img src="/img/market/close.png" id="modal-close">
+            <div id="modal-main"> 
+                <img src="/img/market/kangaroo.jpg">
             </div>
-            <hr>
         </div>
     </div>
     <top>
@@ -48,7 +48,7 @@
             <% for( var i=0; i<1; i++){  %> 
             <div class="story" id="<%=i%>" >
                 <div class="profile">
-                    <img src="/img/cross.png">
+                    <img src="/img/mee.jpg">
                 </div>
                 <div class="name">
                     Sabrina
