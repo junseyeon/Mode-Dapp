@@ -133,7 +133,7 @@ class MarketStorage{
     // marketDetail에 가져올 데이터
     static getPageInfo(regid){        
         return new Promise((resolve,reject)=>{
-            const query = "select * from apply_main where reg_id=?;";
+            const query = "select * from apply_main a INNER JOIN user b on a.user_id = b.user_id where reg_id=?;";
             db.query(query,[regid],(err,data)=>{
                 if(err){
                     logger.err(`${err}`);

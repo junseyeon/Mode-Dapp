@@ -146,8 +146,17 @@ header{
     line-height: 150%;
 }
 
-/* 거래 추이 chart */
+/*메인 이미지*/
+.mainImg{
+    width: 20rem;
+    margin-top: 3rem;
+}
 
+/* quill 편집기 */
+#quill-container{ font-size: 1.3rem;}
+
+
+/* 거래 추이 chart */
 .chart{
     margin-top: 4.5rem;
 }
@@ -186,8 +195,6 @@ header{
 .tooltip-content > ul{
     list-style-type: disc;
 }
-
-
 
 
 /* contetn-right */

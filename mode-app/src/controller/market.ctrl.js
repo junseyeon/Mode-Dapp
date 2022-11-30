@@ -1,8 +1,8 @@
 'use strict'
 
-const User = require("../model/Market");
-const logger = require("../config/logger");
+const User = require("../model/User");
 const Market = require("../model/Market");
+const logger = require("../config/logger");
 
 const output = {
   
@@ -10,14 +10,17 @@ const output = {
         res.render('market');   //render할때 데이터도 넘길 수 있음
     },
 
-    marketDetail: async(req, res) => {    
+    marketDetail: async(req, res) => { 
+        var regid;   
+        regid =  req.body.regid;   // post방식 
+        regid = req.query.regid;   //get방식
         //post로 보낸 regid 받음 - 등록 글 번호 
         // const {   // req.body.regid 
         //     body: {regid, } ,       // 여러개 받기 가능
         // } = req;
-        logger.info("regid : " + req.body.regid);
-        const market = new Market(req.body.regid);
-        const info = await market.getMarket();
+        logger.info("regid: " +regid);
+        const market = new Market(regid);
+        const info = await market.getMarketDetail();
         logger.info(JSON.stringify(info));
         res.render('marketDetail', {'data': info});
     },

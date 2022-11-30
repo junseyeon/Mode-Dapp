@@ -9,8 +9,8 @@ const router = express.Router();
 const ctrl = require('../controller/market.ctrl');
 
 router.get('/market', ctrl.output.market);
-router.post('/marketDetail', ctrl.output.marketDetail); 
-router.get('/marketDetail', ctrl.output.marketDetail); 
+//router.post('/marketDetail', ctrl.output.marketDetail); 
+router.get('/marketDetail', ctrl.output.marketDetail);  //지금은 get방식만 
 
 module.exports = router;
 

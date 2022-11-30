@@ -1,6 +1,6 @@
 'use strict'
 
-$(function(){
+// $(function(){
   $(".Tooltip").hover(
       function(){
           $(".tooltip-content").css('display','block');
@@ -9,7 +9,7 @@ $(function(){
           $(".tooltip-content").css('display','none');
       }
   );
-});
+// });
 
 const pt = document.getElementById('purchaseTrend').getContext('2d');
 
@@ -51,20 +51,18 @@ const config = {
 /* cahrt sample end */
 
 
-
-
 /* quill editor */
+const story = document.querySelector("#setQuill");
+
 var quill = new Quill('#quill-container', {
   scrollingContainer: '#scrolling-container', 
-  placeholder: 'Compose an epic...',
-  theme: 'bubble'
-});
-
-const stroy = document.querySelector("#setQuill");
+  theme: 'bubble',
+});  
+quill.enable(false);   //readonly
 
 if(story.value != ''){
-   console.log(story.value);
+  //  console.log(story.value);
    const quilContent = JSON.parse(story.value);
-   console.log(quilContent.ops);
+  //  console.log(quilContent.ops);
    quill.setContents(quilContent.ops);
 }

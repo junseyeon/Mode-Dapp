@@ -124,7 +124,7 @@ class Market{
 
     }
 
-    async getMarket(){
+    async getMarketDetail(){
         const client = this.body;
         const result = await MarketStorage.getPageInfo(client);
         const result2 = this.tryCatch(result);

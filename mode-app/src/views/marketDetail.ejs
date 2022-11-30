@@ -33,7 +33,9 @@
         <div class="main-image">
             <!-- <img src="img/test1.png"> -->
             <video playsinline controls disableprictureinpicture controlslist="nodwonload nofullscreen" loop>
-                <source src="https://nft-content.upbit.com/b7d43f37-2432-41b6-86a9-8857f555fe44" type="video/mp4">
+                <!-- <source src="https://nft-content.upbit.com/b7d43f37-2432-41b6-86a9-8857f555fe44" type="video/mp4"> -->
+                <source src="<%=data.introVideoPath%>" type="video/mp4">
+
             </video>
         </div>
 
@@ -60,25 +62,26 @@
                     </div>
                 </div>
                 <div class="title">
-                    판매게시글에 대한 이름
+                    <%=data.pTitle%>
                 </div>
                 <div class="registerInfo">
                     <img src="img/profile.png">
                     <div class="profile">
-                        <div class="usrid">가나다 </div> <br>
+                        <div class="usrid">ID: <%=data.user_id%> </div> <br>
                         <div class="job">발행인 </div>
                     </div>
                     <div class="profile-register">
-                        <div> #id  </div> <br>
+                        <div> <%=data.reg_id%>  </div> <br>
                         <div> 발행정보 </div>
                     </div>
                 </div>
     
+                <% var mainImg = data.mainImgPath.split("3000/")[1]; %>
+                <img src="<%=mainImg%>" class="mainImg">
+                <!-- Quill 작성한 글 불러오기 -->
                 <input type="hidden" id="setQuill" value="<%=data.mainarticle %>">
                 <div class="introduce" id="scrolling-contiainer">
-                    <!-- 토성을 가장 토성답게 만드는 트레이드마크는? '고리'다. 거대 가스형 행성은 모두 고리를 갖지만, 토성 고리의 품격과 존재감은 남다르다. 올리는 이런 토성의 고리 위를 거니는 상상을 하며 잠드는데… 꿈속에서 토성 고리를 산책하는 올리와 베리의 모습을 디지털 콜렉터블 작품으로 표현했다. -->
                     <div id="quill-container">
-
                     </div>
                 </div>
 
