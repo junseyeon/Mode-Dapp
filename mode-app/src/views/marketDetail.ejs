@@ -32,11 +32,11 @@
     <main>
         <div class="main-image">
             <!-- <img src="img/test1.png"> -->
-            <video playsinline controls disableprictureinpicture controlslist="nodwonload nofullscreen" loop>
-                <!-- <source src="https://nft-content.upbit.com/b7d43f37-2432-41b6-86a9-8857f555fe44" type="video/mp4"> -->
-                <source src="<%=data.introVideoPath%>" type="video/mp4">
-
-            </video>
+            <!-- <video playsinline controls disableprictureinpicture controlslist="nodwonload nofullscreen" loop>
+                <source src="https://nft-content.upbit.com/b7d43f37-2432-41b6-86a9-8857f555fe44" type="video/mp4">
+            </video> -->
+            <% var mainImg = data.mainImgPath.split("3000/")[1]; %>
+            <img src="<%=mainImg%>" class="mainImg">
         </div>
 
         <div class="layout">
@@ -75,9 +75,21 @@
                         <div> 발행정보 </div>
                     </div>
                 </div>
-    
-                <% var mainImg = data.mainImgPath.split("3000/")[1]; %>
-                <img src="<%=mainImg%>" class="mainImg">
+                
+                <% if(data.introVideoPath != "") { %>
+                <input value="<%=data.introVideoPath%>" type="hidden" class="videoPath">
+                <!-- <iframe id="player" type="text/html" width="640" height="360" src="<%=data.introVideoPath%>&enablejsapi=1" frameborder="0"></iframe> -->
+                <div id="youtube-player">
+                </div>
+                <% } else { 
+                     var introImg = data.introImgPath.split("3000/")[1]; %>
+                     <input value="" type="hidden" class="videoPath"> <!-- js에서 해당 selector없어서 오류나는 것 방지-->
+                     <img src="<%=introImg%>" id="introImg">
+                <% } %>
+                <div class="introSummary">
+                    <%=data.introSummary%>
+                </div>
+
                 <!-- Quill 작성한 글 불러오기 -->
                 <input type="hidden" id="setQuill" value="<%=data.mainarticle %>">
                 <div class="introduce" id="scrolling-contiainer">
@@ -103,27 +115,51 @@
                 </div>
 
             </article>
+            <%  
+                        var today = new Date() ;
+                        var endDate = data.endDate;
+                     //   var arr1 = today.split('-');
+                        var arr2 = endDate.split('-');
+                      //  var date1 = new Date(arr1[0], arr1[1], arr1[2]);
+                        var date2 = new Date(arr2[0], arr2[1]-1 , arr2[2]);
+
+                        var diff = date2.getTime() - today.getTime();
+                        var cuurMinute = 60 * 1000;
+                        var currHour = 60 * cuurMinute;
+                        var currDay = 24 * currHour;// 시 * 분 * 초 * 밀리세컨
+                        var currMonth = currDay * 30; // 월 만듬
+                        var currYear = currMonth * 12; // 년 만듬
+
+                        var leftM =  diff/currMonth;
+                        var leftD =  diff % currMonth / currDay;
+                        var leftH =  diff % currMonth % currDay / currHour;
+                        var leftM =  diff % currMonth % currDay % currHour / cuurMinute;
+            %>
+
             <article class="content-right">
                 <div class="cardTimer">
                     <div class="leftTime">
                         <div class="day">
-                            <div class="leftD"> 00 </div>
-                            <div> Days </div>
+                            <div class="leftD"> <%= parseInt(leftM) %> </div>
+                            <div> Months </div>
                         </div>
                         <div class="hour">
-                            <div class="leftH"> 00 </div>
-                            <div> Hours </div>
+                            <div class="leftH"> <%= parseInt(leftD)%> </div>
+                            <div> Days </div>
                         </div>
                         <div class="minutes">
-                            <div class="leftM"> 00 </div>
-                            <div> Minutes </div>
+                            <div class="leftM"> <%= parseInt(leftH) %> </div>
+                            <div> Hours </div>
                         </div>
                         <div class="seconds">
-                            <div class="leftS"> 00 </div>
-                            <div> Seconds </div>
+                            <div class="leftS"> <%= parseInt(leftM) %> </div>
+                            <div> minutes </div>
                         </div>
                     </div>
-                    <div class="duration">진행기간 : 2022.10.06 12:00 ~ 2022.10.07 12:00</div>
+                    <% 
+                        var fstartDate = data.startDate.replace(/-/gi,'.'); 
+                        var fendDate = endDate.replace(/-/gi,"."); %>
+                    <div class="duration">진행기간 : <%=fstartDate%> 12:00 ~ <%=fendDate%> 12:00</div>
                 </div>
                 <hr>
                 <div class="detail">
@@ -135,7 +171,9 @@
                         <dt>방식</dt>
                         <dd>크라우드펀딩</dd>
                     </dl>
-                    <div class="StyleBtn">주문하기</div>
+                    <div class="StyleBtn"> 
+                        <button onclick="transOrder()">주문하기</button>
+                    </div>
                 </div>
             </article>
         </div>

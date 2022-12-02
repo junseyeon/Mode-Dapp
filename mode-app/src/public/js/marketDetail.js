@@ -66,3 +66,45 @@ if(story.value != ''){
   //  console.log(quilContent.ops);
    quill.setContents(quilContent.ops);
 }
+
+/* youtube */
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var url = document.querySelector(".videoPath").value;
+var player;
+if( url != ""){
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtube-player', {
+      height: '360',
+      width: '640',
+      videoId: url.split('=')[1],
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+ 
+}
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      setTimeout(stopVideo, 1000);
+      done = true;
+    }
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
+
+
+  /* 주문하기 버튼 이벤트 */
+  function transOrder(){
+    alert("클릭");
+  }
