@@ -10,6 +10,14 @@ const output = {
         res.render('home/market');   //render할때 데이터도 넘길 수 있음
     },
 
+    follow: (req, res) => {
+        res.render('home/follow');   //render할때 데이터도 넘길 수 있음
+    },
+
+    attend: (req, res) => {
+        res.render('home/attend');   //render할때 데이터도 넘길 수 있음
+    },
+
     marketDetail: async(req, res) => { 
         var regid;   
         regid =  req.body.regid;   // post방식 

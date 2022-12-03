@@ -28,8 +28,8 @@ header{
 }
 
 
-nav ul li{ padding: 0 3rem 0 0;}   /*오른쪽으로 간격*/
-nav ul li a { position: relative; font-size: 1rem; line-height: 1rem; color: #C6C6DA; transition: all .3s;}
+nav ul li{ padding: 0 2rem;}   /*오른쪽으로 간격*/
+nav ul li a { position: relative; font-size: 1rem; line-height: 1rem; color: #bbb; transition: all .3s; font-weight: 600; font-family:'Noto Sans KR';}
 nav ul li a:hover {color: #fff;}
 nav ul li a:after {         /*하단 밑줄 아래서 위로 올라오게*/
     content: ""; 

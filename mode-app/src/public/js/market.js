@@ -8,7 +8,7 @@ $(function () {
     // });
 
     var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 2,
+        slidesPerView: 3,
         slidesPerGroup: 2,
         spaceBetween: 10,
         loop: true,
@@ -50,6 +50,10 @@ $(function () {
     );
 
     // $("#modal").show();
+    const GV = {
+        isPause : false,
+        timer : null,
+    };
 
     $(document).on("click", ".story", function(){
         $("#modal").show();
@@ -58,17 +62,19 @@ $(function () {
     });
 
     function storyTimer(){
-        var elem = $("#timeBar");
         var len = 0;
-        setInterval(function(){
-            if( len > 90){   //6초 후 닫힘
-                clearInterval();
+        GV.isPause = false;
+        GV.timer = setInterval(function(){
+            if( len > 90 || GV.isPause){   //6초 후 닫힘
+                GV.isPause = true;
+                clearInterval(GV.timer);
                 modalHide();
                 len=0;
                 $('main').removeClass("blur");
             }
             $("#timeBar").css("width", len+"%");
             len += 1.5;
+            console.log(len);
         },100);
     }
 
@@ -76,8 +82,10 @@ $(function () {
 
     function modalHide(){
         $(".searchModal").hide();
+        $('main').removeClass("blur");
+        clearInterval(GV.timer);
+        GV.isPause = true;
     }
-
 
 });
 
