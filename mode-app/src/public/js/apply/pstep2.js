@@ -66,6 +66,7 @@ let tagArea = document.getElementsByClassName('showTagArea');
  const category = document.querySelector("#category");
  const amount = document.querySelector("#amount");
  const endDate = document.querySelector("#endDate");
+ const startDate = document.querySelector("#startDate");
  const saveBtn = document.querySelector(".saveBtn");
  const regid = document.getElementById('regid');
  const searchTagArray = document.getElementById('searchTagArray');
@@ -73,8 +74,8 @@ let tagArea = document.getElementsByClassName('showTagArea');
 
  const save = ()=>{
 
-    const inputArray=[pTitle,category,amount,endDate,tag,loadImg];
-    let reqArray=[pTitle.value,category.value,amount.value,endDate.value,tagArr.join(),decodeURI(loadImg.src)];
+    const inputArray=[pTitle,category,amount, startDate, endDate,tag,loadImg];
+    let reqArray=[pTitle.value,category.value,amount.value,startDate.value, endDate.value,tagArr.join(),decodeURI(loadImg.src)];
     const now = new Date();
     reqArray.forEach((value, index)=>{
         if(value == '' && searchTagArray == '') {

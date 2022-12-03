@@ -54,6 +54,7 @@ $(function () {
     $(document).on("click", ".story", function(){
         $("#modal").show();
         storyTimer();
+        $('main').addClass('blur');
     });
 
     function storyTimer(){
@@ -64,6 +65,7 @@ $(function () {
                 clearInterval();
                 modalHide();
                 len=0;
+                $('main').removeClass("blur");
             }
             $("#timeBar").css("width", len+"%");
             len += 1.5;

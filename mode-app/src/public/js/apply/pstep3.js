@@ -46,8 +46,7 @@ $(function(){
     });
 
         
-    if(story.value != ''){
-       // console.log(story.value);
+    if( story.value != " "){
         const quilContent = JSON.parse(story.value);
         //console.log(quilContent.ops);
         quill.setContents(quilContent.ops);

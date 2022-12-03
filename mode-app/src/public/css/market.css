@@ -21,6 +21,11 @@ main {
     width: 64.45rem;  /* 64.45rem만큼만 중간에 있어서 */
 }
 
+.blur {
+    filter: blur(5px);
+}
+    
+
 .swiper{
     width: 48rem;     
 }

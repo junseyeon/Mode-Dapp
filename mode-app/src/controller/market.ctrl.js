@@ -7,7 +7,7 @@ const logger = require("../config/logger");
 const output = {
   
     market: (req, res) => {
-        res.render('market');   //render할때 데이터도 넘길 수 있음
+        res.render('home/market');   //render할때 데이터도 넘길 수 있음
     },
 
     marketDetail: async(req, res) => { 

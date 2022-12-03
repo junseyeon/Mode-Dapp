@@ -79,14 +79,15 @@
                 <% if(data.introVideoPath != "") { %>
                 <input value="<%=data.introVideoPath%>" type="hidden" class="videoPath">
                 <!-- <iframe id="player" type="text/html" width="640" height="360" src="<%=data.introVideoPath%>&enablejsapi=1" frameborder="0"></iframe> -->
-                <div id="youtube-player">
-                </div>
+                <div id="youtube-player"></div>
                 <% } else { 
                      var introImg = data.introImgPath.split("3000/")[1]; %>
                      <input value="" type="hidden" class="videoPath"> <!-- js에서 해당 selector없어서 오류나는 것 방지-->
                      <img src="<%=introImg%>" id="introImg">
                 <% } %>
+
                 <div class="introSummary">
+                    <b>Project Summary</b> <br>
                     <%=data.introSummary%>
                 </div>
 
@@ -133,7 +134,7 @@
                         var leftM =  diff/currMonth;
                         var leftD =  diff % currMonth / currDay;
                         var leftH =  diff % currMonth % currDay / currHour;
-                        var leftM =  diff % currMonth % currDay % currHour / cuurMinute;
+                        var leftMin =  diff % currMonth % currDay % currHour / cuurMinute;
             %>
 
             <article class="content-right">
@@ -152,7 +153,7 @@
                             <div> Hours </div>
                         </div>
                         <div class="seconds">
-                            <div class="leftS"> <%= parseInt(leftM) %> </div>
+                            <div class="leftS"> <%= parseInt(leftMin) %> </div>
                             <div> minutes </div>
                         </div>
                     </div>

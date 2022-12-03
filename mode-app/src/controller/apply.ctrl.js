@@ -15,7 +15,7 @@ const output = {
 
         if(req.session.uid == undefined){
             res.json("허용되지 않은 접근입니다. 로그인해주세요");
-            process.exit(1);
+            //process.exit(1);
         }
         else{
             name = await start.getName(req.session.uid);

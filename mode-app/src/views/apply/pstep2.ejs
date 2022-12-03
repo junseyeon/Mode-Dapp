@@ -41,14 +41,14 @@
 
                 <label for="regImg" class="p2label">대표 이미지*</label><br><br>
                 <div class="imgFile">
-                        <%  let showimg="width: 20rem; display:none;";
-                            if(data.memory.mainImgPath == "" || data.memory.mainImgPath==undefined) { %>
+                        <%  let showimg="width: 30rem; display:none;";
+                            if(data.memory.mainImgPath == null || data.memory.mainImgPath==undefined) { %>
                         <label for="regImg" class="fileBtn"><img src="/img/camera.png">&nbsp;등록하기</button></label>
                         <input type="file" id="regImg" name="regImg" style="display: none;" onchange="upImg()"></input>
-                        <% }  showimg="width: 20rem; display:block"; %> 
-                      
-                        <img src="<%= data.memory.mainImgPath %>" id="loadImg" class="loadImg" alt="대표 이미지" style="<%=showimg%>">
-
+                        <img src="" id="loadImg" class="loadImg" alt="대표 이미지" style='<%=showimg%>'>
+                        <% } else {  showimg="width: 30rem; display:block"; %> 
+                        <img src="<%= data.memory.mainImgPath %>" id="loadImg" class="loadImg" alt="대표 이미지" style='<%=showimg%>'>
+                        <% } %>
                 </div>
                 <br>
                 <p class="explain">
@@ -82,9 +82,25 @@
                 </p>
                 <input type="text" id="amount" name="amount" style="width: 95%;" value="<%= data.memory.amount %>"> 원
                 <br><br><br><br>
+
+                <label for="startDate" class="p2label">프로젝트 시작일 *</label>
+                <p class="explain">프로젝트 심사부터 리워드 제작 기간 등 전체 일정을 고려해 설정해 주세요.</p>
+                <%
+                    if(data.memory.startDate != null ){
+                        var startDate = data.memory.startDate.split(' ')[0];
+                    } 
+                %>
+                <input type="date" id="startDate" name="startDate" value="<%=startDate%>"> 
+                <br><br><br><br>
+
                 <label for="endDate" class="p2label">프로젝트 종료일 *</label>
                 <p class="explain">프로젝트 심사부터 리워드 제작 기간 등 전체 일정을 고려해 설정해 주세요.</p>
-                <input type="date" id="endDate" name="endDate" value="<%= data.memory.endDate.split(' ')[0] %>"> 
+                <%
+                    if(data.memory.endDate != null ){
+                        var endDate = data.memory.endDate.split(' ')[0];
+                    } 
+                %>
+                <input type="date" id="endDate" name="endDate" value="<%=endDate%>"> 
                 <br><br><br><br>
 
                 <label for="searchTag" class="p2label">검색용 태그(#) *</label>
@@ -95,7 +111,7 @@
                 <br><br>
                 <div class="showTagArea">
                     <%  let searchTagArray = [];
-                        if(data.memory.searchTag != '') { 
+                        if(data.memory.searchTag != null) { 
                             searchTagArray=data.memory.searchTag.split(',');
                             for( var i in searchTagArray ) {
                     %>

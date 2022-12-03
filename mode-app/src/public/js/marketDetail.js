@@ -75,8 +75,8 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var url = document.querySelector(".videoPath").value;
 var player;
-if( url != ""){
-  function onYouTubeIframeAPIReady() {
+  function  onYouTubeIframeAPIReady() {
+    if( url != ""){  
     player = new YT.Player('youtube-player', {
       height: '360',
       width: '640',
@@ -84,11 +84,11 @@ if( url != ""){
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange
-      }
-    });
+        }
+      });
+    }
   }
- 
-}
+
   function onPlayerReady(event) {
     event.target.playVideo();
   }

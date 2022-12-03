@@ -159,7 +159,7 @@ header{
     margin-top: 4rem;
 }
 
-.introSummary{ margin-top: 2rem;}
+.introSummary{ margin-top: 2rem; line-height: 130%;}
 /* quill 편집기 */
 #quill-container{ font-size: 1.3rem;}
 .ql-editor{padding: 0;}
