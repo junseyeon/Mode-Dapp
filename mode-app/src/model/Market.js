@@ -131,6 +131,12 @@ class Market{
         return result2.data;
     }
 
+    async getMainPage(){
+        const result = await MarketStorage.getMainPage();
+        const result2 = this.tryCatch(result);
+        return result2.data;
+    }
+
     tryCatch(result){
         try{
             if(result.success){

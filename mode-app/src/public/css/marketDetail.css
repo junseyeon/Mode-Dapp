@@ -149,10 +149,11 @@ header{
 
 /*메인 이미지*/
 .mainImg{
-    width: 20rem;
+    /* width: 20rem; */
+    max-width: 50rem;
     /* margin-top: 3rem; */
 }
-#introImg{    width: 26rem; margin-top: 4rem;}
+#introImg{  max-width: 50rem; margin-top: 4rem;}
 
 /*youtube 영상*/
 #youtube-player{
@@ -224,6 +225,7 @@ header{
     font-size: .7rem;
     background-color: #edeff4;
     padding: .6rem 1.4rem;
+    width: 2.5rem;
 }
 
 .leftD, .leftH, .leftM, .leftS{

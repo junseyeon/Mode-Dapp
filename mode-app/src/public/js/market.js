@@ -9,7 +9,7 @@ $(function () {
 
     var swiper = new Swiper(".mySwiper", {
         slidesPerView: 3,
-        slidesPerGroup: 2,
+        slidesPerGroup: 3,
         spaceBetween: 10,
         loop: true,
         loopFillGroupWithBlank: true,
@@ -18,16 +18,14 @@ $(function () {
             prevEl: ".swiper-button-prev",
         },
         // centeredSlides : true,
-
     }); 
-
 
     $('.swiper-button-next').on('click',function(){
         $('.swiper-button-prev').css('display','block');
         // swiper.slidesPerGroup = 4;
         // swiper.slidesPerView = 4;
         // console.log(swiper.slidesPerGroup);
-        // document.body.style.width= '96rem'  ;
+        //document.body.style.width= '96rem'  ;
     });
 
 
@@ -102,3 +100,11 @@ $(function () {
 //     // });
 // };
 
+
+function moreFun(){
+    alert("눌림");
+}
+
+function moveTo(regid){
+    location.href= "/marketDetail?regid="+regid;
+}

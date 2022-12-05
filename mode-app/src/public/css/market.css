@@ -17,8 +17,8 @@ main {
     position: relative;
     padding: 1rem 0 0;   /* 상단 메뉴와의 간격 */
     transform : translateX(-50%);  /*left반대편(right)도 50% */ 
-    left: 50%;
-    /* width: 64.45rem;  */
+    left: 45%;
+    width: 64.45rem; 
      /* 64.45rem만큼만 중간에 있어서 */
 }
 
@@ -29,6 +29,7 @@ main {
 
 .swiper{
     /* width: 48rem;      */
+    width: 120%;
 }
 
 .container {
@@ -46,7 +47,7 @@ main {
     margin: 1.5rem; 
     background:rgba(62,62,62,.5);
     box-shadow: 0 10px 15px rgb(0 0 0 / 60%);
-    border-radius: .7rem;
+    border-radius: .5rem;
     width: 22.5rem;
 }
 
@@ -55,16 +56,23 @@ main {
     /* margin: 0 auto; */
     display: block;
     width: 96.6%;
-    height: 14rem;
-    border-radius: .7rem;
+    height: 13rem;
+    border-radius: .5rem;
+    object-fit: cover;
 }
 
 .item .text-box {
     height: 3rem;
-    margin: 0.3rem 0.2rem 0.2rem 1.2rem;   /* */
+    margin: 0.35rem 0.2rem 0.2rem 0;   /* */
     color: #fff;
     font-size: 0.8rem;
 }
+
+.left-text{display: inline-block; width: 45px; height: 40px;}
+.left-text{ align-items: start;}
+.middle-text{display: inline-block; width: 15rem; height: 40px;}
+.right-text{display: inline-block; width: 20%; height: 45px; text-align: right; right: 10px;}
+.right-text .more img{ width: 38px; height: 30px; margin-left: 40%; }
 
 .item .title {
     font-size: 0.9rem;
@@ -92,13 +100,14 @@ main {
 
 /* 왼쪽 sidebar */
 .left-side{
-    background: rgba(0,0,0,.5);
+    background: rgba(42, 42, 42, 0.5);
     outline: none;
     line-height: 2rem;
     box-sizing: border-box;
     width: 4.5rem;
     position: fixed;
     margin: auto 0; 
+    height: 120%;
     /* animation: left 1s var(--delay) both; */
 }
 
@@ -218,6 +227,7 @@ input[search]::placeholder {
 
 /* header */ 
 top{
+    margin-right: 4.5rem;
     position: absolute;
     left: 50%;
     top: 0;

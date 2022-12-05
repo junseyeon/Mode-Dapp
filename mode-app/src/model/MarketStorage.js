@@ -147,6 +147,22 @@ class MarketStorage{
     }
 
 
+    static getMainPage(){
+        return new Promise((resolve,reject)=>{
+            const query = "select * from apply_main a INNER JOIN user b on a.user_id = b.user_id where showMain='Y';";
+            db.query(query,(err,data)=>{
+                if(err){
+                    logger.err(`${err}`);
+                    reject(`${err}`);
+                } else{
+                 //  logger.info("query :: " + JSON.stringify(data[0]));  // [] 감싸서 나옴 
+                   resolve({success: true, data : data});
+                }
+            });
+        });
+    }
+
+
 }
 
 module.exports = MarketStorage;

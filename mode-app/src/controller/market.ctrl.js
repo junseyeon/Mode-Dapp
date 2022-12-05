@@ -6,8 +6,11 @@ const logger = require("../config/logger");
 
 const output = {
   
-    market: (req, res) => {
-        res.render('home/market');   //render할때 데이터도 넘길 수 있음
+    market: async (req, res) => {
+        const market = new Market();
+        const response = await market.getMainPage();
+        logger.info(JSON.stringify(response));
+        res.render('home/market',{'data': response});   //render할때 데이터도 넘길 수 있음
     },
 
     follow: (req, res) => {
@@ -15,6 +18,9 @@ const output = {
     },
 
     attend: (req, res) => {
+        if(req.session.uid == undefined){
+            res.json("로그인 후 이용해주세요");
+        }
         res.render('home/attend');   //render할때 데이터도 넘길 수 있음
     },
 
@@ -27,8 +33,8 @@ const output = {
         //     body: {regid, } ,       // 여러개 받기 가능
         // } = req;
         logger.info("regid: " +regid);
-        const market = new Market(regid);
-        const info = await market.getMarketDetail();
+        const marketD = new Market(regid);
+        const info = await marketD.getMarketDetail();
         logger.info(JSON.stringify(info));
         res.render('marketDetail', {'data': info});
     },

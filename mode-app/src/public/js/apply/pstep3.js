@@ -26,7 +26,7 @@ $(function(){
     $("#introVideoPath").change(videoChecked);
     $("#introImgPath").change(imgChecked);
         
-    const introImgPath  = document.querySelector('input[name=regImg]');
+    const introImgPath  = document.querySelector('.loadImg');  
     const introVideoPath  = document.querySelector('input[name=videoPath]');
     const introSummarty = document.querySelector('#summaryText');
     const story = document.querySelector('input[name=story]');
@@ -56,7 +56,7 @@ $(function(){
     $('.saveBtn').on('click', function(){
 
         story.value = JSON.stringify(quill.getContents());
-        let reqArray = [introImgPath.value, introVideoPath.value,introSummarty.value, story.value] 
+        let reqArray = [introImgPath.src, introVideoPath.value,introSummarty.value, story.value] 
         console.log({...reqArray});
 
         $.ajax({

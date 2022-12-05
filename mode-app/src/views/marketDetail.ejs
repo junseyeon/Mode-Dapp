@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="htttps://fonts.gstatic.com" crossorigin>
      <!-- Include stylesheet -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <!-- Include the Quill library -->
@@ -27,7 +27,6 @@
             <img src="img/logo.png" style="width: 6rem;">
             MODE_DAPP
         </sapn>
-        <hr>
     </header>
     <main>
         <div class="main-image">
@@ -65,7 +64,7 @@
                     <%=data.pTitle%>
                 </div>
                 <div class="registerInfo">
-                    <img src="img/profile.png">
+                    <img src="<%=data.profileImg.split('3000/')[1]%>">
                     <div class="profile">
                         <div class="usrid">ID: <%=data.user_id%> </div> <br>
                         <div class="job">발행인 </div>
@@ -160,13 +159,13 @@
                     <% 
                         var fstartDate = data.startDate.replace(/-/gi,'.'); 
                         var fendDate = endDate.replace(/-/gi,"."); %>
-                    <div class="duration">진행기간 : <%=fstartDate%> 12:00 ~ <%=fendDate%> 12:00</div>
+                    <div class="duration">진행기간 : <%=fstartDate%> ~ <%=fendDate%> </div>
                 </div>
                 <hr>
                 <div class="detail">
                     <dl class="totalFund">
                         <dt>달성 가격</dt>
-                        <dd> <b>1000000</b> 원 펀딩</dd> 
+                        <dd> <b><%=data.currentAmount%></b> 원 펀딩</dd> 
                     </dl>
                     <dl class="type">
                         <dt>방식</dt>
