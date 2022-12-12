@@ -29,6 +29,7 @@ header{
     padding-left: 15%;
     z-index: 1000;
     background: #fff;
+    align-items: center;
 }
 
 .main-image{
@@ -221,11 +222,11 @@ header{
 }
 
 .day, .hour, .minutes, .seconds{
-    margin: 0rem .75rem;
+    margin: 0rem .7rem;
     font-size: .7rem;
     background-color: #edeff4;
     padding: .6rem 1.4rem;
-    width: 2.5rem;
+    /* width: 2.5rem; */
 }
 
 .leftD, .leftH, .leftM, .leftS{

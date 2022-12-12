@@ -108,3 +108,7 @@ var player;
   function transOrder(){
     alert("클릭");
   }
+
+  function goback(){
+    location.href= "/market";
+  }

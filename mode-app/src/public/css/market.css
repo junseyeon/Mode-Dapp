@@ -45,7 +45,8 @@ main {
 .container .line .item{
     /*display: block;*/
     margin: 1.5rem; 
-    background:rgba(62,62,62,.5);
+    /* background:rgba(30, 31, 38, 0.9); */
+    background: linear-gradient(to right, rgb(45, 45, 53), rgb(21, 22, 27));
     box-shadow: 0 10px 15px rgb(0 0 0 / 60%);
     border-radius: .5rem;
     width: 22.5rem;
@@ -81,10 +82,13 @@ main {
 .item .sub-title {
     font-size: 0.8rem;
 }
-
+.item .sub-title #hit{ font-size: .6rem; padding: 2px; background: rgb(233, 97, 97);}
+.item .sub-title #new{ font-size: .6rem; padding: 2px; background: rgb(45, 64, 214);}
 .hidden-text{
+    margin: .3rem .2rem;
     display: none;
 }
+.hidden-text span{ background: rgb(0, 0, 0); padding:3px; font-size: .6rem;}
 
 .last{
     opacity: 0.5;

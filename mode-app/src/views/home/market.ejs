@@ -90,9 +90,9 @@
                             </div>
                             <div class="middle-text">
                                 <div class="title"><%=data[i*2].pTitle%></div>
-                                <div class="sulb-title">
+                                <div class="sub-title">
                                     <sapn><%=data[i*2].name%></sapn>
-                                    <span>HIT</span>   
+                                    <span id="hit">&nbsp;HIT&nbsp;</span>   
                                 </div>
                             </div>
                             <div class="right-text">
@@ -101,11 +101,12 @@
                                 </div>
                             </div>
                             <div class="hidden-text">
-                                <sapn>LIKE</sapn>
-                                <sapn>SHORT DETAIL</sapn>
+                                <span>LIKE</span>
+                                <span>SHORT DETAIL</span>
                             </div>
                         </div>
                     </div>
+                    <br>
                     <div class="item">
                         <%  var profileImg = data[i*2+1].profileImg.split('3000/')[1]; %>
                         <img src="<%=data[i*2+1].mainImgPath%>" alt="image here"  onclick="moveTo('<%=data[i*2+1].reg_id%>')">
@@ -116,9 +117,9 @@
                             </div>
                             <div class="middle-text">
                                 <div class="title"><%=data[i*2+1].pTitle%></div>
-                                <div class="sulb-title">
+                                <div class="sub-title">
                                     <sapn><%=data[i*2+1].name%></sapn>
-                                    <span>HIT</span>   
+                                    <span id="new">NEW</span>   
                                 </div>
                             </div>
                             <div class="right-text">

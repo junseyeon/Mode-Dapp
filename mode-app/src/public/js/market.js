@@ -41,9 +41,14 @@ $(function () {
     $('.item').hover(
         function(){
             $(this).find('.hidden-text').css('display','block');
+            $(this).css('padding-bottom','1rem');
+            $(this).css('margin-bottom','0.4rem');
+
         },
         function(){
             $(this).find('.hidden-text').css('display','none');
+            $(this).css('padding-bottom','0rem');
+            $(this).css('margin-bottom','1.5rem');
         }
     );
 
