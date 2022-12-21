@@ -44,7 +44,7 @@ module.exports = {
     //
     development: {
      host: "127.0.0.1",     // Localhost (default: none)
-     port: 7545,            // Standard Ethereum port (default: none)
+     port: 1377,            // Standard Ethereum port (default: none)
      network_id: "*",       // Any network (default: none)
     },
 
@@ -57,6 +57,16 @@ module.exports = {
       // from: <address>,        // Account to send txs from (default: accounts[0])
       // websockets: true        // Enable EventEmitter interface for web3 (default: false)
     // },
+
+    goerli: {
+      provider: () => {
+        return new HDWalletProvider(process.env.MNEMONIC, 'https://goerli.infura.io/v3/' + process.env.INFURA_API_KEY)
+      },
+      network_id: '5', // eslint-disable-line camelcase
+      gas: 4465030,
+      gasPrice: 10000000000,
+      skipDryRun: true,
+    },
 
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
