@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.6.0 <0.9.0;
+pragma experimental ABIEncoderV2;
 
 contract Funding{
     address payable public chairperson;
@@ -54,7 +55,7 @@ contract Funding{
     event Log (Buyer a, uint p);
     event Log2 (Product a, uint p);
 
-    constructor() {  //배포시 동작 
+    constructor() public{  //배포시 동작 
         chairperson = payable(msg.sender);    
     }
 
@@ -95,8 +96,8 @@ contract Funding{
     // 상품 결제 + 구매 이력 남음 
     function buyRequest(uint blockRegId, uint pId, address payable seller) external payable{
         emit Log2(products[seller][blockRegId],msg.value);
-        require(products[seller][blockRegId].pId == pId);  //, "블록체인에 등록되지 않은 프로젝트 입니다"
-        require(useProject[pId]==1);  //, "현재 구매 불가한 상품입니다"
+        require(products[seller][blockRegId].pId == pId, "this is not registerd project"); 
+        require(useProject[pId]==1, "End Project");  
         // 돈 단위에 따라서 파악..
         require(products[seller][blockRegId].price == msg.value/1000000000000000000 ); //, "given price does not match!"
         require (msg.sender.balance >= msg.value ); //, "your balance is not enough"
@@ -117,10 +118,14 @@ contract Funding{
 
       // 환불진행  -- 환불 요청은 웹에서 
       // req안 맞으면 바로 revert됨 
-    function refundApply(address payable refundAccount, uint reqId) external payable{
-        emit Log(buyers[refundAccount][reqId] , buyers[refundAccount][reqId].price );
-        require(buyers[refundAccount][reqId].price > 0);
-        transfer(refundAccount, buyers[refundAccount][reqId].price);
+    function refundApply(address payable refundAccount, uint reqId) onlySeller external payable{
+        uint refundPrice = buyers[refundAccount][reqId].price;
+        require(buyers[refundAccount][reqId].seller == msg.sender, "your not this projectmanager");
+        require( refundPrice > 0, "you don't buy anything");
+        emit Log(buyers[refundAccount][reqId] , refundPrice );
+        emit Log(buyers[refundAccount][reqId] , msg.value );
+
+        transfer(refundAccount, msg.value);
     }
 
     // function settlementOfCharge(uint pId) public payable{                 // 본인 escrow -> 본인 실제 지갑
