@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mode-app</title>
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"  media="(min-width:0px) and (max-width:500px)" href="css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/market.css">
+    <link rel="stylesheet" type="text/css" href="css/list.css">
+
+<!--ipad로 할때는 max-width:1025, html{font-size:의 크기만 키워주면 다 같이 사이즈 업}-->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
+    <script src="js/index.js" charset="utf-8"></script>
+    </head>
+<body>      
+    <div class="left-side">
+        <div class="icon">
+            <button class="applyBtn" style="background: inherit;"><img src="img/sidebar_ic1.png"></button>
+            <a href="/apply/start"><img src="img/sidebar_ic2.png"></a>
+            <img src="img/sidebar_ic1.png">
+            <img src="img/settings.png">
+        </div>
+        <div class="last_icon">
+            <a href="/logout" onclick="alert('로그아웃 합니다.');"><img src="img/logout.png"></a>
+        </div>
+    </div>
+    <top>
+    <input type="search"  name="mainSearch" id="mainSearch" placeholder="Search ...">
+    </top>
+    <main>
+        <table class="list">
+             
+            <tbody>
+                <tr>
+                    <th><h3>성명</h3></th>
+                    <th><h3>카테고리</h3></th>
+                    <th><h3>제목</h3></th>
+                    <th><h3>목표액</h3></th>
+                    <th><h3>시작일/종료일</h3></th>
+                    <th><h3>태그</h3></th>
+                    <th><h3>등록일</h3></th>
+                    <th><h3>승인하기</h3></th>
+                  </tr>
+                <% for(var i=0; i<data.length; i++){ %>
+              <tr>
+                <td><%=data[i].name%></td>
+                <td><%=data[i].category%></td>
+                <td><%=data[i].pTitle%></td>
+                <td><%=data[i].amount%></td>
+                <td><%=data[i].startDate%> ~ <%=data[i].endDate%></td>
+                <td><%=data[i].searchTag%></td>
+                <!-- <td><%=data[i].indate%></td> -->
+                <td>2022-12-12</td>
+                <td> <button>승인하기</button></td>
+              </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

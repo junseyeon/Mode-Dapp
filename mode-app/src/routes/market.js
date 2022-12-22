@@ -11,6 +11,7 @@ const ctrl = require('../controller/market.ctrl');
 router.get('/market', ctrl.output.market);
 router.get('/follow', ctrl.output.follow);
 router.get('/attend', ctrl.output.attend);
+router.get('/applyList', ctrl.output.applyList);
 
 //router.post('/marketDetail', ctrl.output.marketDetail); 
 router.get('/marketDetail', ctrl.output.marketDetail);  //지금은 get방식만 

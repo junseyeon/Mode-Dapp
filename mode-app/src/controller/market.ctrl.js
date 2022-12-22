@@ -9,7 +9,7 @@ const output = {
     market: async (req, res) => {
         const market = new Market();
         const response = await market.getMainPage();
-        logger.info(JSON.stringify(response));
+       // logger.info(JSON.stringify(response));
         res.render('home/market',{'data': response});   //render할때 데이터도 넘길 수 있음
     },
 
@@ -35,9 +35,17 @@ const output = {
         logger.info("regid: " +regid);
         const marketD = new Market(regid);
         const info = await marketD.getMarketDetail();
-        logger.info(JSON.stringify(info));
+    //    logger.info(JSON.stringify(info));
         res.render('marketDetail', {'data': info});
     },
+
+    applyList: async(req, res)=>{
+
+        const applyL = new Market();
+        const info = await applyL.applyList();
+        res.render("home/applyList",{'data':info});
+    }
+    
 };
 
 const process = {

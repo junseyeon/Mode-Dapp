@@ -7,7 +7,7 @@ body{
     /* background-color: #4621AD; */
     font-size: 1rem;
 }
-h1{
+/* h1{
     position: absolute;
     left: 50%;
     top:0;
@@ -17,7 +17,7 @@ h1{
     transform: translateX(-50%); 
     border-radius: 0 0 1.125rem 1.125rem;
     background:url(../img/logo.png) no-repeat center / 4.75rem auto #fff ;
-}
+} */
 header{
     position: absolute;
     left: 50%;
