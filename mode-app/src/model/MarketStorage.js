@@ -51,7 +51,7 @@ class MarketStorage{
 
     static getStep2(regid){    
         return new Promise((resolve,reject)=>{
-            const query = "select pTitle, mainImgPath, category, amount, endDate, searchTag from apply_main where reg_id=?";
+            const query = "select pTitle, mainImgPath, category, amount, startDate, endDate, searchTag from apply_main where reg_id=?";
             db.query(query,[regid],(err,data)=>{
                 if(err){
                     logger.err(`${err}`);
@@ -164,7 +164,7 @@ class MarketStorage{
 
     static getApplyList(){
         return new Promise((resolve,reject)=>{
-            const query = "select name, pTitle, category, amount, startDate, endDate, searchTag, a.in_date indate from apply_main a INNER JOIN user b on a.user_id = b.user_id where blockPermission='N';";
+            const query = "select reg_id, price, name, pTitle, category, amount, startDate, endDate, searchTag, a.in_date indate from apply_main a INNER JOIN user b on a.user_id = b.user_id where blockPermission='N';";
             db.query(query,(err,data)=>{
                 if(err){
                     logger.err(`${err}`);
@@ -179,13 +179,28 @@ class MarketStorage{
 
     static getAllList(){
         return new Promise((resolve,reject)=>{
-            const query = "select name, pTitle, category, amount, startDate, endDate, searchTag, in_date from apply_main a INNER JOIN user b on a.user_id = b.user_id ;";
+            const query = "select * from apply_main a INNER JOIN user b on a.user_id = b.user_id;";
             db.query(query,(err,data)=>{
                 if(err){
                     logger.err(`${err}`);
                     reject(`${err}`);
                 } else{
                  //  logger.info("query :: " + JSON.stringify(data[0]));  // [] 감싸서 나옴 
+                   resolve({success: true, data : data});
+                }
+            });
+        });
+    }
+
+    static getAttendList(id){
+        return new Promise((resolve,reject)=>{
+            const query = "select reg_id, mainImgPath, reg_id, price, name, pTitle, category, amount, startDate, endDate, searchTag, a.in_date indate from apply_main a INNER JOIN user b on a.user_id = b.user_id where a.user_id=?;";
+            db.query(query,[id],(err,data)=>{
+                if(err){
+                    logger.err(`${err}`);
+                    reject(`${err}`);
+                } else{
+                  logger.info("query :: " + JSON.stringify(data[0]));  // [] 감싸서 나옴 
                    resolve({success: true, data : data});
                 }
             });

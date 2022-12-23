@@ -106,7 +106,7 @@ var player;
 
   /* 주문하기 버튼 이벤트 */
   function transOrder(){
-    alert("클릭");
+    alert("주문합니다.");
   }
 
   function goback(){

@@ -1,0 +1,15 @@
+{
+    "category":{
+        "category1":"패션 잡화",
+        "category2" : "테크 가전",
+        "category3" : "뷰티",
+        "category4" : "푸드",
+        "category5" : "홈 리빙",
+        "category6" : "여행 레저",
+        "category7" : "게임 취미",
+        "category8" : "컬쳐 아티스트",
+        "category9" : "출판",
+        "category10" : "기부 캠페인",
+        "category11" : "후원"
+    }
+}

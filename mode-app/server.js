@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({extended: false}));  //url을 통해 전달되는
 // 방법2. 요즘은 bodyParser다운 X
 //app.use(express.json());
 //app.use(express.urlencoded({extended: false}));
+app.use(express.static('../mode-contract/build/contracts'));
 
 app.use('/files', express.static('files'));
 

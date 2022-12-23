@@ -143,6 +143,13 @@ class Market{
         return result2.data;
     }
 
+    async getMyAttend(){
+        const client = this.body;
+        const result= await MarketStorage.getAttendList(client);
+        const result2 = this.tryCatch(result);
+        return result2.data;
+    }
+
     tryCatch(result){
         try{
             if(result.success){

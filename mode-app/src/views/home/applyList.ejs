@@ -18,15 +18,16 @@
     <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/index.js" charset="utf-8"></script>
+    <script src="js/applyList.js"></script>
     </head>
 <body>      
     <div class="left-side">
         <div class="icon">
-            <button class="applyBtn" style="background: inherit;"><img src="img/sidebar_ic1.png"></button>
+            <a href="/market"><img src="img/sidebar_ic1.png"></a>
             <a href="/apply/start"><img src="img/sidebar_ic2.png"></a>
-            <img src="img/sidebar_ic1.png">
+            <a href="/applyList"><img src="img/sidebar_ic1.png"></a>
             <img src="img/settings.png">
         </div>
         <div class="last_icon">
@@ -37,8 +38,9 @@
     <input type="search"  name="mainSearch" id="mainSearch" placeholder="Search ...">
     </top>
     <main>
+        <div style="margin-top: 12rem;margin-left: 4.5rem;"> <h2>블록체인에 프로젝트 등록하기</h2> </div>
         <table class="list">
-             
+
             <tbody>
                 <tr>
                     <th><h3>성명</h3></th>
@@ -51,20 +53,29 @@
                     <th><h3>승인하기</h3></th>
                   </tr>
                 <% for(var i=0; i<data.length; i++){ %>
+                  
               <tr>
+                <input type="hidden" id="pId<%=i%>" value="<%=data[i].reg_id%>">
+                <input type="hidden" id="price<%=i%>" value="<%=data[i].price%>">
                 <td><%=data[i].name%></td>
                 <td><%=data[i].category%></td>
                 <td><%=data[i].pTitle%></td>
                 <td><%=data[i].amount%></td>
                 <td><%=data[i].startDate%> ~ <%=data[i].endDate%></td>
                 <td><%=data[i].searchTag%></td>
-                <!-- <td><%=data[i].indate%></td> -->
+                <!-- <td><%=data[i  ].indate%></td> -->
                 <td>2022-12-12</td>
-                <td> <button>승인하기</button></td>
+                <!-- <td> <button type="button" id="<%=i%>" onclick="permission(this.id)">승인하기</button></td> -->
+                <td> <button type="button" id="addblock" value="<%=i%>">승인하기</button></td>
               </tr>
                 <% } %>
             </tbody>
         </table>
     </main>
 </body>
+<script src="js/app.js"></script>
+<!-- <script src="js/truffle-contract.js"></script> -->
+<script src="js/toastr.min.js"></script>
+<script src="js/dist/toastr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.37/dist/web3.min.js"></script>
 </html>

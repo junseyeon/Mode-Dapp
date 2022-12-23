@@ -17,11 +17,14 @@ const output = {
         res.render('home/follow');   //render할때 데이터도 넘길 수 있음
     },
 
-    attend: (req, res) => {
+    attend: async(req, res) => {
         if(req.session.uid == undefined){
             res.json("로그인 후 이용해주세요");
         }
-        res.render('home/attend');   //render할때 데이터도 넘길 수 있음
+        const market = new Market(req.session.uid);
+        const response = await market.getMyAttend();
+        logger.info(JSON.stringify(response));
+        res.render('home/attend',{'data':response});   //render할때 데이터도 넘길 수 있음
     },
 
     marketDetail: async(req, res) => { 
@@ -40,7 +43,6 @@ const output = {
     },
 
     applyList: async(req, res)=>{
-
         const applyL = new Market();
         const info = await applyL.applyList();
         res.render("home/applyList",{'data':info});

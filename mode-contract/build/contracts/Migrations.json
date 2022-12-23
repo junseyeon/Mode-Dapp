@@ -888,12 +888,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0x15e3A530c34f0152dEC1a5d8AF24D8754A4F6579",
-      "transactionHash": "0x000fdcabe63235d6ed0994d10c0f2b3d7ae364725a81e194288a6cdcc274e248"
+      "address": "0x544d1c3D5aEBb9E4676Ede932d9fFa995F1480b0",
+      "transactionHash": "0x364cd7dd507c784e597f0d4921123836cd4dbc6fe68cf369d18d407da551efb5"
     }
   },
   "schemaVersion": "3.0.23",
-  "updatedAt": "2022-12-21T17:18:41.839Z",
+  "updatedAt": "2022-12-23T00:51:44.044Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
