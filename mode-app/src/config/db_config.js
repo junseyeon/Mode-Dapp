@@ -8,10 +8,6 @@ const db = mysql.createConnection({
     dateStrings: "date",
 });
 
-// host: "mode.ccyybaccjurm.ap-northeast-2.rds.amazonaws.com",
-    // user: "admin",
-    // password: "12341234",
-    // database :"mode"
 
 db.connect();
 
